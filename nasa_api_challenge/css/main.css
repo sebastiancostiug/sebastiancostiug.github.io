@@ -1,0 +1,186 @@
+* {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box; }
+
+body {
+  padding: 0;
+  margin: 0;
+  font-size: 100%;
+  background-color: #313b64;
+  font-family: nasalization; }
+
+@font-face {
+  font-family: nasalization;
+  src: url(../fonts/nasalization-rg.ttf); }
+
+body {
+  position: relative; }
+
+.backBtn {
+  position: fixed;
+  top: 0;
+  left: 25%;
+  font-family: nasalization;
+  margin: 1em auto;
+  width: 50%;
+  height: 1.5em;
+  font-size: 1rem;
+  color: antiquewhite;
+  background-color: steelblue;
+  text-shadow: 1px 1px 2px #17407c;
+  border: none;
+  -webkit-box-shadow: 1px 1px 4px #17407c;
+          box-shadow: 1px 1px 4px #17407c;
+  border-radius: 4px; }
+  .backBtn:hover {
+    cursor: pointer;
+    color: #17407c;
+    background-color: antiquewhite;
+    -webkit-box-shadow: 1px 1px 4px steelblue;
+            box-shadow: 1px 1px 4px steelblue; }
+
+.startPage {
+  width: 100%;
+  height: 100%;
+  position: fixed; }
+  .startPage.col-12 {
+    top: 0;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    font-size: 3rem;
+    font-weight: 700;
+    color: antiquewhite;
+    text-shadow: 1px 1px 4px #17407c;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background: url(../img/nasa_mars.jpg); }
+    .startPage.col-12 div {
+      margin: 1em auto;
+      text-align: center; }
+    .startPage.col-12 .enterBtn {
+      font-family: nasalization;
+      margin: 1em auto;
+      width: 10em;
+      height: 2em;
+      font-size: 1.5rem;
+      color: antiquewhite;
+      background-color: steelblue;
+      text-shadow: 1px 1px 2px #17407c;
+      border: none;
+      -webkit-box-shadow: 1px 1px 4px #17407c;
+              box-shadow: 1px 1px 4px #17407c;
+      border-radius: 4px; }
+      .startPage.col-12 .enterBtn:hover {
+        cursor: pointer;
+        color: #17407c;
+        background-color: antiquewhite;
+        -webkit-box-shadow: 1px 1px 4px steelblue;
+                box-shadow: 1px 1px 4px steelblue; }
+
+.container {
+  font-family: nasalization;
+  height: 100vh;
+  width: 100vw;
+  position: inherit; }
+  .container .row {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-pack: distribute;
+        justify-content: space-around;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center; }
+    .container .row ::before,
+    .container .row ::after {
+      content: "";
+      display: block;
+      clear: both; }
+    @media only screen {
+      .container .row {
+        -ms-flex-wrap: wrap;
+            flex-wrap: wrap; }
+        .container .row .col-1 {
+          width: 100%; }
+        .container .row .col-2 {
+          width: 100%; }
+        .container .row .col-3 {
+          width: 100%; }
+        .container .row .col-4 {
+          width: 100%; }
+        .container .row .col-5 {
+          width: 100%; }
+        .container .row .col-6 {
+          width: 100%; }
+        .container .row .col-7 {
+          width: 100%; }
+        .container .row .col-8 {
+          width: 100%; }
+        .container .row .col-9 {
+          width: 100%; }
+        .container .row .col-10 {
+          width: 100%; }
+        .container .row .col-11 {
+          width: 100%; }
+        .container .row .col-12 {
+          width: 100%; } }
+    @media only screen and (min-width: 768px) {
+      .container .row .col-1 {
+        width: 8.33333%; }
+      .container .row .col-2 {
+        width: 16.66667%; }
+      .container .row .col-3 {
+        width: 25%; }
+      .container .row .col-4 {
+        width: 33.33333%; }
+      .container .row .col-5 {
+        width: 41.66667%; }
+      .container .row .col-6 {
+        width: 50%; }
+      .container .row .col-7 {
+        width: 58.33333%; }
+      .container .row .col-8 {
+        width: 66.66667%; }
+      .container .row .col-9 {
+        width: 75%; }
+      .container .row .col-10 {
+        width: 83.33333%; }
+      .container .row .col-11 {
+        width: 91.66667%; }
+      .container .row .col-12 {
+        width: 100%; } }
+
+.galleryPage {
+  width: 100%; }
+  .galleryPage .col-4 {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center; }
+
+.hide {
+  display: none !important; }
+
+.show {
+  display: -webkit-box !important;
+  display: -ms-flexbox !important;
+  display: flex !important; }
+/*# sourceMappingURL=main.css.map */
