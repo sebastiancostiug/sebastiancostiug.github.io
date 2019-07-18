@@ -27,6 +27,7 @@ class App extends Component {
 							<Route exact path="/" component={NavMainMenu} />
 							<Route path="/usrstatsform" component={UsrStatsForm} />
 							<Route path="/sliders" component={Sliders} />
+							<Route path="/countdown" component={Sliders} />
 							<Route component={NotFound} />
 						</Switch>
 					</HashRouter>

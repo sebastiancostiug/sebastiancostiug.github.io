@@ -1,10 +1,16 @@
 import React, { Component, Fragment } from "react";
+import { HashRouter, Route, Link, Switch, NavLink } from "react-router-dom";
 class PanelBtn extends Component {
+	doClick() {
+		if (typeof this.props.wasClicked === "function") {
+			this.props.wasClicked(this.props.scope);
+		}
+	}
 	render() {
 		let { scope, fasIcon } = this.props;
 		return (
 			<Fragment>
-				<div className={scope}>
+				<div className={scope} onClick={this.doClick.bind(this)}>
 					<span>
 						<i className={fasIcon} />
 					</span>
@@ -15,13 +21,21 @@ class PanelBtn extends Component {
 	}
 }
 class CtrlPanel extends Component {
+	wasClicked() {
+		if (this.props.scope == "back") {
+		}
+	}
 	render() {
 		return (
 			<Fragment>
 				<div className="ctrlPanel">
 					<div className="buttons">
-						<PanelBtn scope="back" fasIcon="fas fa-play" />
-						<PanelBtn scope="start" fasIcon="fas fa-play" />
+						<Link to="/">
+							<PanelBtn scope="back" fasIcon="fas fa-play" wasClicked={this.wasClicked.bind(this)} />
+						</Link>
+						<Link to="/countdown">
+							<PanelBtn scope="start" fasIcon="fas fa-play" wasClicked={this.wasClicked.bind(this)} />
+						</Link>
 					</div>
 				</div>
 			</Fragment>
