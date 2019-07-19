@@ -1,5 +1,5 @@
 import React, { Component, Fragment } from "react";
-import { HashRouter, Route, Link, Switch, NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
 class PanelBtn extends Component {
 	doClick() {
 		if (typeof this.props.wasClicked === "function") {
@@ -33,7 +33,7 @@ class CtrlPanel extends Component {
 						<Link to="/">
 							<PanelBtn scope="back" fasIcon="fas fa-play" wasClicked={this.wasClicked.bind(this)} />
 						</Link>
-						<Link to="/countdown">
+						<Link to="/sweat">
 							<PanelBtn scope="start" fasIcon="fas fa-play" wasClicked={this.wasClicked.bind(this)} />
 						</Link>
 					</div>

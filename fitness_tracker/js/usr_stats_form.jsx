@@ -1,4 +1,6 @@
 import React, { Component, Fragment } from "react";
+import { HashRouter, Route, Link, Switch, NavLink } from "react-router-dom";
+
 class UsrStatsForm extends Component {
 	/*constructor(props) {
 		super(props);
@@ -22,6 +24,23 @@ class UsrStatsForm extends Component {
 		document.body.appendChild(a);
 		a.click();
 	}*/
+	componentDidMount() {
+		const radioGender = document.querySelectorAll("form.usrStats>div.gender>label.custom-radio");
+		radioGender.forEach(function(element) {
+			element.addEventListener("click", function(event) {
+				radioGender.forEach(function(element) {
+					console.log(element);
+					event.stopPropagation();
+					if (element.firstElementChild.checked) {
+						element.style.color = "#92140c";
+					} else {
+						element.style.color = "#fdf0d5";
+					}
+				});
+			});
+		});
+		console.log(radioGender);
+	}
 
 	render() {
 		return (
@@ -43,6 +62,9 @@ class UsrStatsForm extends Component {
 						<input type="number" name="weight" placeholder="weight" />
 					</div>
 					<div className="save">
+						<Link to="/">
+							<input type="button" value="back" />
+						</Link>
 						<input type="submit" value="save" />
 					</div>
 				</form>
