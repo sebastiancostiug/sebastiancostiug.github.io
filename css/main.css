@@ -1,0 +1,377 @@
+@font-face {
+  font-family: 'Nexa Light';
+  src: local("Nexa Light"), url("../../fonts/Nexa_Light.otf");
+  font-weight: light;
+  font-family: 'Nexa Bold';
+  src: local("Nexa Bold"), url("../../fonts/Nexa_Bold.otf");
+  font-weight: bold;
+}
+
+* {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-size: 100%;
+}
+
+body {
+  background-color: #242423;
+  font-family: 'Nexa Light', sans-serif;
+}
+
+.container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  background-color: #242423;
+  height: 100vh;
+  margin: 0 auto;
+}
+
+.container .row {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+.container .row::before, .container .row::after {
+  content: "";
+  display: block;
+  clear: both;
+}
+
+.container .row .col-1 {
+  width: 8.33333%;
+}
+
+.container .row .col-2 {
+  width: 16.66667%;
+}
+
+.container .row .col-3 {
+  width: 25%;
+}
+
+.container .row .col-4 {
+  width: 33.33333%;
+}
+
+.container .row .col-5 {
+  width: 41.66667%;
+}
+
+.container .row .col-6 {
+  width: 50%;
+}
+
+.container .row .col-7 {
+  width: 58.33333%;
+}
+
+.container .row .col-8 {
+  width: 66.66667%;
+}
+
+.container .row .col-9 {
+  width: 75%;
+}
+
+.container .row .col-10 {
+  width: 83.33333%;
+}
+
+.container .row .col-11 {
+  width: 91.66667%;
+}
+
+.container .row .col-12 {
+  width: 100%;
+}
+
+.container .row.divisor > .neutral {
+  height: 2.5rem;
+  z-index: 1;
+}
+
+.container .row.divisor > .neutral:first-child {
+  -webkit-box-shadow: 0px 10px 20px -15px black;
+  box-shadow: 0px 10px 20px -15px black;
+}
+
+.container .row.divisor > .neutral:last-child {
+  -webkit-box-shadow: 0px -10px 20px -15px black;
+  box-shadow: 0px -10px 20px -15px black;
+}
+
+.container .row.divisor > .accent {
+  padding-top: 2rem;
+  z-index: 0;
+  height: 3rem;
+  background-color: #69140e;
+}
+
+.container .row.divisor > .accent > .portfolio {
+  height: 100%;
+}
+
+.container .row.divisor > .accent > .portfolio > ul.projList {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+}
+
+.container .row.divisor > .accent > .portfolio > ul.projList > li {
+  padding-top: 2rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -ms-flex-line-pack: end;
+      align-content: flex-end;
+  list-style-type: none;
+}
+
+.container .row.divisor > .accent > .portfolio > ul.projList > li div {
+  text-align: right;
+}
+
+.container .row.divisor > .accent > .portfolio > ul.projList > li div:first-child {
+  font-family: Nexa Bold;
+  font-size: 2rem;
+}
+
+.container .row.divisor > .accent > .portfolio > ul.projList > li div a {
+  text-decoration: none;
+  color: #f7f7f2;
+}
+
+.container .row.divisor > .accent > .portfolio > ul.projList > li div a:hover {
+  color: #f7f7f2;
+  text-shadow: 0rem 0rem .2rem #242423;
+}
+
+.container .row.divisor > .accent #contactForm {
+  font-family: Nexa Light;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
+}
+
+.container .row.divisor > .accent #contactForm > input {
+  font-family: Nexa Light;
+  margin: .5rem;
+  font-size: 1.2em;
+  text-align: center;
+  background-color: #f7f7f2;
+  color: #242423;
+  border: none;
+  height: 2rem;
+  width: 25.7rem;
+  border-radius: .5em;
+  -webkit-box-shadow: 0px 10px 20px -15px black;
+  box-shadow: 0px 10px 20px -15px black;
+}
+
+.container .row.divisor > .accent #contactForm > textarea {
+  font-family: Nexa Light;
+  font-size: 1.2em;
+  margin: .4rem;
+  background-color: #f7f7f2;
+  color: #242423;
+  border: none;
+  border-radius: .5rem;
+  -webkit-box-shadow: 0px 10px 20px -15px black;
+  box-shadow: 0px 10px 20px -15px black;
+  resize: none;
+}
+
+.container header {
+  color: #f7f7f2;
+  font-family: Nexa Light;
+}
+
+.container header .col-4.title div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.container header .col-4.title div span {
+  margin-top: 0px;
+  display: inline-block;
+}
+
+.container header .col-4.title div:first-child {
+  margin-bottom: -4rem;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
+}
+
+.container header .col-4.title div:first-child span {
+  margin-top: 2rem;
+  font-size: 5rem;
+}
+
+.container header .col-4.title div:nth-child(2) {
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+}
+
+.container header .col-4.title div:nth-child(2) span > span:first-child {
+  font-size: 2rem;
+}
+
+.container header .col-4.title div:nth-child(2) span > span:nth-child(2) {
+  font-family: Nexa Bold;
+  font-size: 5rem;
+  font-weight: 700;
+}
+
+.container header .col-4.title div:last-child {
+  margin-top: -1.5rem;
+  font-size: 1rem;
+  letter-spacing: .75rem;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+}
+
+.container header .col-4.title > :first-child {
+  font-weight: 100;
+  text-align: left;
+}
+
+.container header .col-4.title > :nth-child(2) {
+  text-align: right;
+}
+
+.container header .col-4.title > :last-child {
+  font-weight: 100;
+  text-align: center;
+}
+
+.container footer.row {
+  font-family: Nexa Light;
+  background-color: #242423;
+}
+
+.container footer.row .col-9.menu {
+  font-size: 1rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  padding-bottom: 2em;
+}
+
+.container footer.row .col-9.menu div {
+  margin: 1em 0;
+  letter-spacing: .75rem;
+}
+
+.container footer.row .col-9.menu div:hover span a {
+  -webkit-animation-name: menuItemMove;
+          animation-name: menuItemMove;
+  -webkit-animation-duration: 0.3s;
+          animation-duration: 0.3s;
+  -webkit-animation-iteration-count: 1;
+          animation-iteration-count: 1;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
+  -webkit-animation-timing-function: ease-out;
+          animation-timing-function: ease-out;
+  text-shadow: .3rem .3rem .15rem #ffffff;
+}
+
+@-webkit-keyframes menuItemMove {
+  from {
+    left: 0px;
+    top: 0px;
+  }
+  to {
+    left: -.3rem;
+    top: -.3rem;
+  }
+}
+
+@keyframes menuItemMove {
+  from {
+    left: 0px;
+    top: 0px;
+  }
+  to {
+    left: -.3rem;
+    top: -.3rem;
+  }
+}
+
+.container footer.row .col-9.menu div span a {
+  position: relative;
+  color: #f7f7f2;
+  text-decoration: none;
+}
+
+#grinHead {
+  position: fixed;
+  bottom: -14vh;
+  left: -10vw;
+}
+
+.hide {
+  display: none !important;
+}
+/*# sourceMappingURL=main.css.map */
