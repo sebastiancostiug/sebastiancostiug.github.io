@@ -23,7 +23,7 @@ body {
   font-family: 'Nexa Light', sans-serif;
 }
 
-.container {
+.container-fluid {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -39,7 +39,7 @@ body {
   margin: 0 auto;
 }
 
-.container .row {
+.container-fluid .row {
   width: 100%;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -48,87 +48,92 @@ body {
       flex-wrap: wrap;
 }
 
-.container .row::before, .container .row::after {
+.container-fluid .row::before, .container-fluid .row::after {
   content: "";
   display: block;
   clear: both;
 }
 
-.container .row .col-1 {
+.container-fluid .row .col-1 {
   width: 8.33333%;
 }
 
-.container .row .col-2 {
+.container-fluid .row .col-2 {
   width: 16.66667%;
 }
 
-.container .row .col-3 {
+.container-fluid .row .col-3 {
   width: 25%;
 }
 
-.container .row .col-4 {
+.container-fluid .row .col-4 {
   width: 33.33333%;
 }
 
-.container .row .col-5 {
+.container-fluid .row .col-5 {
   width: 41.66667%;
 }
 
-.container .row .col-6 {
+.container-fluid .row .col-6 {
   width: 50%;
 }
 
-.container .row .col-7 {
+.container-fluid .row .col-7 {
   width: 58.33333%;
 }
 
-.container .row .col-8 {
+.container-fluid .row .col-8 {
   width: 66.66667%;
 }
 
-.container .row .col-9 {
+.container-fluid .row .col-9 {
   width: 75%;
 }
 
-.container .row .col-10 {
+.container-fluid .row .col-10 {
   width: 83.33333%;
 }
 
-.container .row .col-11 {
+.container-fluid .row .col-11 {
   width: 91.66667%;
 }
 
-.container .row .col-12 {
+.container-fluid .row .col-12 {
   width: 100%;
 }
 
-.container .row.divisor > .neutral {
+.container-fluid .row.content {
+  position: fixed;
+  top: 25vh;
+}
+
+.container-fluid .row > .neutral {
   height: 7vh;
   z-index: 1;
 }
 
-.container .row.divisor > .neutral:first-child {
+.container-fluid .row > .neutral:first-child {
   -webkit-box-shadow: 0px 10px 20px -15px black;
   box-shadow: 0px 10px 20px -15px black;
 }
 
-.container .row.divisor > .neutral:last-child {
+.container-fluid .row > .neutral:last-child {
   -webkit-box-shadow: 0px -10px 20px -15px black;
   box-shadow: 0px -10px 20px -15px black;
 }
 
-.container .row.divisor > .accent {
+.container-fluid .row > .accent {
   padding-top: 3.5vh;
   z-index: 0;
   height: 7vh;
   background-color: #69140e;
 }
 
-.container .row.divisor > .accent > .portfolio {
+.container-fluid .row > .accent > .portfolio {
   height: 100%;
 }
 
-.container .row.divisor > .accent > .portfolio > ul.projList {
+.container-fluid .row > .accent > .portfolio > ul.projList {
   width: 100%;
   margin: 0;
   padding: 0;
@@ -140,7 +145,7 @@ body {
           justify-content: flex-end;
 }
 
-.container .row.divisor > .accent > .portfolio > ul.projList > li {
+.container-fluid .row > .accent > .portfolio > ul.projList > li {
   padding-top: 2vh;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -157,26 +162,26 @@ body {
   list-style-type: none;
 }
 
-.container .row.divisor > .accent > .portfolio > ul.projList > li div {
+.container-fluid .row > .accent > .portfolio > ul.projList > li div {
   text-align: right;
 }
 
-.container .row.divisor > .accent > .portfolio > ul.projList > li div:first-child {
+.container-fluid .row > .accent > .portfolio > ul.projList > li div:first-child {
   font-family: Nexa Bold;
   font-size: 2rem;
 }
 
-.container .row.divisor > .accent > .portfolio > ul.projList > li div a {
+.container-fluid .row > .accent > .portfolio > ul.projList > li div a {
   text-decoration: none;
   color: #f7f7f2;
 }
 
-.container .row.divisor > .accent > .portfolio > ul.projList > li div a:hover {
+.container-fluid .row > .accent > .portfolio > ul.projList > li div a:hover {
   color: #f7f7f2;
   text-shadow: 0rem 0rem .2rem #242423;
 }
 
-.container .row.divisor > .accent #contactForm {
+.container-fluid .row > .accent #contactForm {
   font-family: Nexa Light;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -192,7 +197,7 @@ body {
           align-items: flex-end;
 }
 
-.container .row.divisor > .accent #contactForm > input {
+.container-fluid .row > .accent #contactForm > input {
   font-family: Nexa Light;
   margin: 1vh;
   font-size: 1.2em;
@@ -207,7 +212,7 @@ body {
   box-shadow: 0px 10px 20px -15px black;
 }
 
-.container .row.divisor > .accent #contactForm > textarea {
+.container-fluid .row > .accent #contactForm > textarea {
   font-family: Nexa Light;
   font-size: 1.2em;
   margin: 1vh;
@@ -221,88 +226,78 @@ body {
   resize: none;
 }
 
-.container header {
+.container-fluid header {
   color: #f7f7f2;
   font-family: Nexa Light;
 }
 
-.container header .col-4.title div {
+.container-fluid header .col-4.title {
+  position: relative;
+}
+
+.container-fluid header .col-4.title div {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
 }
 
-.container header .col-4.title div span {
-  margin-top: 0px;
+.container-fluid header .col-4.title div span {
   display: inline-block;
 }
 
-.container header .col-4.title div:first-child {
-  margin-bottom: -8vh;
-  -webkit-box-pack: start;
-      -ms-flex-pack: start;
-          justify-content: flex-start;
-  -webkit-box-align: end;
-      -ms-flex-align: end;
-          align-items: flex-end;
+.container-fluid header .col-4.title div:first-child {
+  position: absolute;
+  right: 15rem;
 }
 
-.container header .col-4.title div:first-child span {
-  margin-top: 5vh;
+.container-fluid header .col-4.title div:first-child span {
   font-size: 5rem;
 }
 
-.container header .col-4.title div:nth-child(2) {
-  -webkit-box-pack: end;
-      -ms-flex-pack: end;
-          justify-content: flex-end;
-  -webkit-box-align: start;
-      -ms-flex-align: start;
-          align-items: flex-start;
+.container-fluid header .col-4.title div:nth-child(2) {
+  position: absolute;
+  right: 0;
+  top: 2rem;
 }
 
-.container header .col-4.title div:nth-child(2) span > span:first-child {
+.container-fluid header .col-4.title div:nth-child(2) span > span:first-child {
   font-size: 2rem;
 }
 
-.container header .col-4.title div:nth-child(2) span > span:nth-child(2) {
+.container-fluid header .col-4.title div:nth-child(2) span > span:nth-child(2) {
   font-family: Nexa Bold;
   font-size: 5rem;
   font-weight: 700;
 }
 
-.container header .col-4.title div:last-child {
-  margin-top: -3vh;
+.container-fluid header .col-4.title div:last-child {
+  position: absolute;
+  right: 0;
+  top: 7rem;
   font-size: 1rem;
   letter-spacing: .75rem;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: start;
-      -ms-flex-align: start;
-          align-items: flex-start;
 }
 
-.container header .col-4.title > :first-child {
+.container-fluid header .col-4.title > :first-child {
   font-weight: 100;
   text-align: left;
 }
 
-.container header .col-4.title > :nth-child(2) {
+.container-fluid header .col-4.title > :nth-child(2) {
   text-align: right;
 }
 
-.container header .col-4.title > :last-child {
+.container-fluid header .col-4.title > :last-child {
   font-weight: 100;
   text-align: center;
 }
 
-.container footer.row {
+.container-fluid footer.row {
   font-family: Nexa Light;
   background-color: #242423;
 }
 
-.container footer.row .col-9.menu {
+.container-fluid footer.row .col-9.menu {
   font-size: 1rem;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -319,12 +314,12 @@ body {
   padding-bottom: 5vh;
 }
 
-.container footer.row .col-9.menu div {
+.container-fluid footer.row .col-9.menu div {
   margin: 1em 0;
   letter-spacing: .75rem;
 }
 
-.container footer.row .col-9.menu div:hover span a {
+.container-fluid footer.row .col-9.menu div:hover span a {
   -webkit-animation-name: menuItemMove;
           animation-name: menuItemMove;
   -webkit-animation-duration: 0.3s;
@@ -360,7 +355,7 @@ body {
   }
 }
 
-.container footer.row .col-9.menu div span a {
+.container-fluid footer.row .col-9.menu div span a {
   position: relative;
   color: #f7f7f2;
   text-decoration: none;
@@ -375,7 +370,7 @@ body {
 }
 
 #grinHead img {
-  width: 100%;
+  width: 30vw;
   height: auto;
 }
 

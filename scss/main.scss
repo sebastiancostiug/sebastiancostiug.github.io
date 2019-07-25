@@ -5,7 +5,7 @@ body {
 	background-color: map-get($colormap, dark);
 	font-family: 'Nexa Light', sans-serif;
 }
-.container {
+.container-fluid {
 	display: flex;
 	justify-content: space-between;
 	flex-direction: column;
@@ -22,96 +22,98 @@ body {
 				width: $i*$colStep +0%;
 			}
 		}
-		&.divisor {
-			> .neutral {
-				height: 7vh;
-				z-index: 1;
-				&:first-child {
-					-webkit-box-shadow: 0px 10px 20px -15px rgba(0, 0, 0, 1);
-					-moz-box-shadow: 0px 10px 20px -15px rgba(0, 0, 0, 1);
-					box-shadow: 0px 10px 20px -15px rgba(0, 0, 0, 1);
-				}
-				&:last-child {
-					-webkit-box-shadow: 0px -10px 20px -15px rgba(0, 0, 0, 1);
-					-moz-box-shadow: 0px -10px 20px -15px rgba(0, 0, 0, 1);
-					box-shadow: 0px -10px 20px -15px rgba(0, 0, 0, 1);
-				}
+		&.content {
+			position: fixed;
+			top: 25vh;
+		}
+		> .neutral {
+			height: 7vh;
+			z-index: 1;
+			&:first-child {
+				-webkit-box-shadow: 0px 10px 20px -15px rgba(0, 0, 0, 1);
+				-moz-box-shadow: 0px 10px 20px -15px rgba(0, 0, 0, 1);
+				box-shadow: 0px 10px 20px -15px rgba(0, 0, 0, 1);
 			}
-			> .accent {
-				padding-top: 3.5vh;
-				z-index: 0;
-				height: 7vh;
-				background-color: map-get($colormap, accent);
-				> .portfolio {
-					height: 100%;
-					> ul {
-						&.projList {
-							width: 100%;
-							margin: 0;
-							padding: 0;
+			&:last-child {
+				-webkit-box-shadow: 0px -10px 20px -15px rgba(0, 0, 0, 1);
+				-moz-box-shadow: 0px -10px 20px -15px rgba(0, 0, 0, 1);
+				box-shadow: 0px -10px 20px -15px rgba(0, 0, 0, 1);
+			}
+		}
+		> .accent {
+			padding-top: 3.5vh;
+			z-index: 0;
+			height: 7vh;
+			background-color: map-get($colormap, accent);
+			> .portfolio {
+				height: 100%;
+				> ul {
+					&.projList {
+						width: 100%;
+						margin: 0;
+						padding: 0;
+						display: flex;
+						justify-content: flex-end;
+						> li {
+							padding-top: 2vh;
 							display: flex;
-							justify-content: flex-end;
-							> li {
-								padding-top: 2vh;
-								display: flex;
-								flex-direction: column;
-								justify-content: flex-start;
-								align-content: flex-end;
-								list-style-type: none;
-								div {
-									text-align: right;
-									&:first-child {
-										font-family: Nexa Bold;
-										font-size: 2rem;
-									}
-									a {
-										text-decoration: none;
+							flex-direction: column;
+							justify-content: flex-start;
+							align-content: flex-end;
+							list-style-type: none;
+							div {
+								text-align: right;
+								&:first-child {
+									font-family: Nexa Bold;
+									font-size: 2rem;
+								}
+								a {
+									text-decoration: none;
+									color: map-get($colormap, light);
+									&:hover {
 										color: map-get($colormap, light);
-										&:hover {
-											color: map-get($colormap, light);
-											text-shadow: 0rem 0rem .2rem #242423;
-										}
+										text-shadow: 0rem 0rem .2rem #242423;
 									}
 								}
 							}
 						}
 					}
 				}
-				#contactForm {
+			}
+			#contactForm {
+				font-family: Nexa Light;
+				display: flex;
+				flex-direction: column;
+				justify-content: space-around;
+				align-items: flex-end;
+				> input {
 					font-family: Nexa Light;
-					display: flex;
-					flex-direction: column;
-					justify-content: space-around;
-					align-items: flex-end;
-					> input {
-						font-family: Nexa Light;
-						margin: 1vh;
-						font-size: 1.2em;
-						text-align: center;
-						background-color: map-get($colormap, light);
-						color: map-get($colormap, dark);
-						border: none;
-						height: 2rem;
-						width: 50%;
-						border-radius: .5em;
-						-webkit-box-shadow: 0px 10px 20px -15px rgba(0, 0, 0, 1);
-						-moz-box-shadow: 0px 10px 20px -15px rgba(0, 0, 0, 1);
-						box-shadow: 0px 10px 20px -15px rgba(0, 0, 0, 1);
-					}
-					> textarea {
-						font-family: Nexa Light;
-						font-size: 1.2em;
-						margin: 1vh;
-						width: 50%;
-						background-color: map-get($colormap, light);
-						color: map-get($colormap, dark);
-						border: none;
-						border-radius: .5rem;
-						-webkit-box-shadow: 0px 10px 20px -15px rgba(0, 0, 0, 1);
-						-moz-box-shadow: 0px 10px 20px -15px rgba(0, 0, 0, 1);
-						box-shadow: 0px 10px 20px -15px rgba(0, 0, 0, 1);
-						resize: none;
-					}
+					margin: 1vh;
+					font-size: 1.2em;
+					text-align: center;
+					background-color: map-get($colormap, light);
+					color: map-get($colormap, dark);
+					border: none;
+					height: 2rem;
+					width: 50%;
+					border-radius: .5em;
+					-webkit-box-shadow: 0px 10px 20px -15px rgba(0, 0, 0, 1);
+					-moz-box-shadow: 0px 10px 20px -15px rgba(0, 0, 0, 1);
+					box-shadow: 0px 10px 20px -15px rgba(0, 0, 0, 1);
+				}
+				> textarea {
+					font-family: Nexa Light;
+					font-size: 1.2em;
+					margin: 1vh;
+					width: 50%;
+					background-color: map-get($colormap, light);
+					color: map-get($colormap, dark);
+					border: none;
+					border-radius: .5rem;
+					-webkit-box-shadow: 0px 10px 20px -15px rgba(0, 0, 0, 1);
+					-moz-box-shadow: 0px 10px 20px -15px rgba(0, 0, 0, 1);
+					box-shadow: 0px 10px 20px -15px rgba(0, 0, 0, 1);
+					resize: none;
 				}
 			}
 		}
@@ -121,22 +123,23 @@ body {
 		font-family: Nexa Light;
 		.col-4 {
 			&.title {
+				position: relative;
 				div {
 					span {
-						margin-top: 0px;
 						display: inline-block;
 					}
 					display: flex;
 					&:first-child {
+						position: absolute;
+						right: 15rem;
 						span {
-							margin-top: 5vh;
 							font-size: 5rem;
 						}
-						margin-bottom: -8vh;
-						justify-content: flex-start;
-						align-items: flex-end;
 					}
 					&:nth-child(2) {
+						position: absolute;
+						right: 0;
+						top: 2rem;
 						span {
 							> span:first-child {
 								font-size: 2rem;
@@ -147,15 +150,13 @@ body {
 								font-weight: 700;
 							}
 						}
-						justify-content: flex-end;
-						align-items: flex-start;
 					}
 					&:last-child {
-						margin-top: -3vh;
+						position: absolute;
+						right: 0;
+						top: 7rem;
 						font-size: 1rem;
 						letter-spacing: .75rem;
-						justify-content: center;
-						align-items: flex-start;
 					}
 				}
 				> :first-child {
@@ -229,7 +230,7 @@ body {
 	width: 30vw;
 	height: 30vh;
 	img {
-		width: 100%;
+		width: 30vw;
 		height: auto;
 	}
 }
