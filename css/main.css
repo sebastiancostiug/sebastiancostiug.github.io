@@ -103,7 +103,7 @@ body {
 }
 
 .container .row.divisor > .neutral {
-  height: 2.5rem;
+  height: 7vh;
   z-index: 1;
 }
 
@@ -118,9 +118,9 @@ body {
 }
 
 .container .row.divisor > .accent {
-  padding-top: 2rem;
+  padding-top: 3.5vh;
   z-index: 0;
-  height: 3rem;
+  height: 7vh;
   background-color: #69140e;
 }
 
@@ -141,7 +141,7 @@ body {
 }
 
 .container .row.divisor > .accent > .portfolio > ul.projList > li {
-  padding-top: 2rem;
+  padding-top: 2vh;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -194,14 +194,14 @@ body {
 
 .container .row.divisor > .accent #contactForm > input {
   font-family: Nexa Light;
-  margin: .5rem;
+  margin: 1vh;
   font-size: 1.2em;
   text-align: center;
   background-color: #f7f7f2;
   color: #242423;
   border: none;
   height: 2rem;
-  width: 25.7rem;
+  width: 50%;
   border-radius: .5em;
   -webkit-box-shadow: 0px 10px 20px -15px black;
   box-shadow: 0px 10px 20px -15px black;
@@ -210,7 +210,8 @@ body {
 .container .row.divisor > .accent #contactForm > textarea {
   font-family: Nexa Light;
   font-size: 1.2em;
-  margin: .4rem;
+  margin: 1vh;
+  width: 50%;
   background-color: #f7f7f2;
   color: #242423;
   border: none;
@@ -237,7 +238,7 @@ body {
 }
 
 .container header .col-4.title div:first-child {
-  margin-bottom: -4rem;
+  margin-bottom: -8vh;
   -webkit-box-pack: start;
       -ms-flex-pack: start;
           justify-content: flex-start;
@@ -247,7 +248,7 @@ body {
 }
 
 .container header .col-4.title div:first-child span {
-  margin-top: 2rem;
+  margin-top: 5vh;
   font-size: 5rem;
 }
 
@@ -271,7 +272,7 @@ body {
 }
 
 .container header .col-4.title div:last-child {
-  margin-top: -1.5rem;
+  margin-top: -3vh;
   font-size: 1rem;
   letter-spacing: .75rem;
   -webkit-box-pack: center;
@@ -315,7 +316,7 @@ body {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  padding-bottom: 2em;
+  padding-bottom: 5vh;
 }
 
 .container footer.row .col-9.menu div {
