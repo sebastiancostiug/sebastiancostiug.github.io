@@ -22,14 +22,14 @@ $(document).ready(function(e) {
 			grinHead.fadeOut(500);
 			grinHead.animate(
 				{
-					left   : "-9vw",
-					bottom : "18vh"
+					left   : "3vw",
+					bottom : "34vh"
 				},
 				{
 					step     : function(now, fx) {
-						$(this).css("-webkit-transform", "rotate(" + now * 3.7 + "deg)");
-						$(this).css("-moz-transform", "rotate(" + now * 3.7 + "deg)");
-						$(this).css("transform", "rotate(" + now * 3.7 + "deg)");
+						$(this).css("-webkit-transform", "rotate(" + now * 2 + "deg)");
+						$(this).css("-moz-transform", "rotate(" + now * 2 + "deg)");
+						$(this).css("transform", "rotate(" + now * 2 + "deg)");
 					},
 					duration : 1000
 				},
@@ -57,14 +57,14 @@ $(document).ready(function(e) {
 			grinHead.fadeOut(500);
 			grinHead.animate(
 				{
-					left   : "-9vw",
-					bottom : "18vh"
+					left   : "3vw",
+					bottom : "34vh"
 				},
 				{
 					step     : function(now, fx) {
-						$(this).css("-webkit-transform", "rotate(" + now * 3.7 + "deg)");
-						$(this).css("-moz-transform", "rotate(" + now * 3.7 + "deg)");
-						$(this).css("transform", "rotate(" + now * 3.7 + "deg)");
+						$(this).css("-webkit-transform", "rotate(" + now * 2 + "deg)");
+						$(this).css("-moz-transform", "rotate(" + now * 2 + "deg)");
+						$(this).css("transform", "rotate(" + now * 2 + "deg)");
 					},
 					duration : 1000
 				},

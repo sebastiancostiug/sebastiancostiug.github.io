@@ -223,8 +223,14 @@ body {
 }
 #grinHead {
 	position: fixed;
-	bottom: -14vh;
-	left: -10vw;
+	bottom: 20vh;
+	left: -8vw;
+	width: 30vw;
+	height: 30vh;
+	img {
+		width: 100%;
+		height: auto;
+	}
 }
 
 .hide {
