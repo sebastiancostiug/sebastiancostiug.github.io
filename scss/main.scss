@@ -17,9 +17,20 @@ body {
 		display: flex;
 		flex-wrap: wrap;
 		@include clearfix();
-		@for $i from 1 through $colNo {
-			.col-#{$i} {
-				width: $i*$colStep +0%;
+		@media only screen {
+			[class*='col-'] {
+				float: none;
+				width: 100%;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+			}
+		}
+		@media only screen and (min-width: 375px) {
+			@for $i from 1 through $colNo {
+				.col-#{$i} {
+					width: $i*$colStep +0%;
+				}
 			}
 		}
 		&.content {
@@ -97,7 +108,7 @@ body {
 					border: none;
 					height: 2rem;
 					width: 50%;
-					border-radius: .5em;
+					border-radius: .1em;
 					-webkit-box-shadow: 0px 10px 20px -15px rgba(0, 0, 0, 1);
 					-moz-box-shadow: 0px 10px 20px -15px rgba(0, 0, 0, 1);
 					box-shadow: 0px 10px 20px -15px rgba(0, 0, 0, 1);
@@ -110,7 +121,7 @@ body {
 					background-color: map-get($colormap, light);
 					color: map-get($colormap, dark);
 					border: none;
-					border-radius: .5rem;
+					border-radius: .1rem;
 					-webkit-box-shadow: 0px 10px 20px -15px rgba(0, 0, 0, 1);
 					-moz-box-shadow: 0px 10px 20px -15px rgba(0, 0, 0, 1);
 					box-shadow: 0px 10px 20px -15px rgba(0, 0, 0, 1);

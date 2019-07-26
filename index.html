@@ -3,80 +3,39 @@
 
 <head>
   <meta charset="utf-8">
-  <title>Seb's place</title>
+  <title>Seba's GitHub projects</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <!--
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-  -->
-  <link rel='stylesheet' href='./css/main.css'>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-  <script src="./js/main.js" type="application/javascript"></script>
-
 </head>
 
 <body>
-    <div class="container-fluid">
-      <header class="row">
-        <div class="col-7"></div>
-        <div class="col-4 title">
-          <div><span>Hello</span></div>
-          <div><span><span>I'M</span> <span>SEB</span></span></div>
-          <div><span>a front-end developer</span></div>
-        </div>
-        <div class="col-1"></div>
-      </header>
-      <section class="row content">
-        <div class="col-12 neutral"></div>
-        <div class="col-12 accent">
-          <section class="row about">
-            <div class="col-3"></div>
-            <div class="col-8"></div>
-            <div class="col-1"></div>
-          </section>
-          <section class="row portfolio" style="display:none">
-            <ul class="projList">
-              <li class="col-3"></li>
-              <li class="col-4">
-                <div><a href="./fitness_tracker/index.html">Fitness tracker</a></div>
-                <div>--work in progress--<br/>
-                    !! Mobile touch UI only (for now)<br/>
-                    curently working on an ergonomic combined countdown section available here:<br/>
-                    <a href="./fitness_tracker/index.html#/sweat">Countdown Sliders</a></div>
-              </li>
-              <li class="col-4">
-                <div><a href="./nasa_api_challenge/index.html">NASA API Challenge</a></div>
-                <div>--work in progress--<br/>
-                    displays a gallery o Mars photos from the NASA API</div>
-              </li>
-              <li class="col-1"></li>
-            </ul>
-          </section>
-          <section class="row contact" style="display:none">
-            <div class="col-3"></div>
-            <form class="col-8" id=contactForm>
-              <input type="text" placeholder="enter your name">
-              <input type="email" placeholder="enter your e-mail address">
-              <textarea name="message" id="" cols="39" rows="10" placeholder="what do you want to say to me?"></textarea>
-              <input type="submit" value="send">
-            </form>
-            <div class="col-1"></div>
-          </section>
-        </div>
-        <div class="col-12 neutral"></div>
-      </section>
-      <footer class="row">
-        <div id="grinHead"><img src="./assets/grin2.svg" alt="my lovely grin" class="img-fluid"></div>
-        <div class="col-2"></div>
-        <div class="col-9 menu">
-          <div id="about"><span><a href="#">get to know me</a></span></div>
-          <div id="portfolio"><span><a href="#">my playground</a></span></div>
-          <div id="contact"><span><a href="#">say hello</a></span></div>
-        </div>
-        <div class="col-1"></div>
-      </footer>
-    </div>
+    <header>
+        <h2>Projects list and links</h2>
+    </header>
+    <section>
+      <ul>
+        <li>
+          <h3>
+            <a href="./fitness_tracker/index.html">
+              <strong>Fitness tracker</strong>
+            </a>
+          </h3>
+          <br/>
+          --work in progress--<br/>
+          !! Mobile touch UI only (for now)<br/>
+          curently working on an ergonomic combined countdown section available here:<br/>
+          <a href="./fitness_tracker/#/sweat">Countdown Sliders</a>
+        </li>
+        <li>
+          <h3>
+            <a href="./nasa_api_challenge/index.html">
+              <strong>NASA API Challenge</strong>
+            </a>
+          </h3>
+          <br/>
+          --work in progress--<br/>
+          displays a gallery o Mars photos from the NASA API<br/>
+        </li>
+      </ul>
+    </section>
 </body>
-
 </html>

@@ -1,6 +1,10 @@
 $colNo: 12;
 $colStep: 100/$colNo;
 $colormap: (light: #f7f7f2, accent:#69140e, dark:#242423);
+$tablet: "(min-width: 768px) and (max-width: 1023px)";
+$desktop: "(min-width: 1024px)";
+$tablet-width: 768px;
+$desktop-width: 1024px;
 
 @font-face {
 	font-family: 'Nexa Light';
