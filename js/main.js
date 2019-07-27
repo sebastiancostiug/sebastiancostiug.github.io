@@ -44,8 +44,8 @@ $(document).ready(function(e) {
 			grinHead.fadeOut(500);
 			grinHead.animate(
 				{
-					left : "-3vh",
-					top  : "37vh"
+					left : "-14%",
+					top  : "40%"
 				},
 				{
 					step     : function(now, fx) {

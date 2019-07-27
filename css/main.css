@@ -303,7 +303,6 @@ a {
     transition: 0.5s;
   }
   #grinHead {
-    z-index: -1;
     position: fixed;
     bottom: -14%;
     left: -8%;
@@ -311,7 +310,7 @@ a {
     height: 30%;
   }
   #grinHead img {
-    width: 30%;
+    width: 100%;
     height: auto;
   }
   .row.content {

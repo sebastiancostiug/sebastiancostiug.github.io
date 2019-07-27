@@ -225,14 +225,13 @@ a {
 		}
 	}
 	#grinHead {
-		z-index: -1;
 		position: fixed;
 		bottom: -14%;
 		left: -8%;
 		width: 30%;
 		height: 30%;
 		img {
-			width: 30%;
+			width: 100%;
 			height: auto;
 		}
 	}
