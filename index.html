@@ -3,39 +3,74 @@
 
 <head>
   <meta charset="utf-8">
-  <title>Seba's GitHub projects</title>
+  <title>Seb's place</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!--
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+  -->
+  <link rel='stylesheet' href='./css/main.css'>
+  <script src="./js/jquery-3.4.1.min.js" type="application/javascript"></script>
+  <script src="./js/main.js" type="application/javascript"></script>
 </head>
 
 <body>
-    <header>
-        <h2>Projects list and links</h2>
-    </header>
-    <section>
-      <ul>
-        <li>
-          <h3>
-            <a href="./fitness_tracker/index.html">
-              <strong>Fitness tracker</strong>
-            </a>
-          </h3>
-          <br/>
-          --work in progress--<br/>
-          !! Mobile touch UI only (for now)<br/>
-          curently working on an ergonomic combined countdown section available here:<br/>
-          <a href="./fitness_tracker/#/sweat">Countdown Sliders</a>
-        </li>
-        <li>
-          <h3>
-            <a href="./nasa_api_challenge/index.html">
-              <strong>NASA API Challenge</strong>
-            </a>
-          </h3>
-          <br/>
-          --work in progress--<br/>
-          displays a gallery o Mars photos from the NASA API<br/>
-        </li>
-      </ul>
-    </section>
+    <div class="container">
+      <header class="row">
+        <div class="col-4"><div><span>Hello</span></div></div>
+        <div class="col-4 title">
+          <div><span>I'M</span> <span>SEB</span></div>
+        </div>
+        <div class="col-4"><div><span>a front-end developer</span></div></div>
+      </header>
+      <section class="row content">
+        <div class="col-12 neutral"></div>
+        <div class="col-12 accent">
+          <section class="about">
+          </section>
+          <section class="portfolio" style="display:none">
+            <ul class="projList">
+              <li class="">
+                <div><a href="./fitness_tracker/index.html">Fitness tracker</a></div>
+                <div>--work in progress--<br/>
+                    !! Mobile touch UI only (for now)<br/>
+                    curently working on an ergonomic combined countdown section available here:<br/>
+                    <a href="./fitness_tracker/index.html#/sweat">Countdown Sliders</a></div>
+              </li>
+              <li class="">
+                <div><a href="./nasa_api_challenge/index.html">NASA API Challenge</a></div>
+                <div>--work in progress--<br/>
+                    displays a gallery o Mars photos from the NASA API</div>
+              </li>
+            </ul>
+          </section>
+          <section class="contact" style="display:none">
+            <form class="" id=contactForm>
+              <input type="text" placeholder="enter your name">
+              <input type="email" placeholder="enter your e-mail address">
+              <textarea name="message" id="" cols="39" rows="10" placeholder="what do you want to say to me?"></textarea>
+              <input type="submit" value="send">
+            </form>
+          </section>
+        </div>
+        <div class="col-12 neutral"></div>
+      </section>
+      <footer class="navMenu">
+          <input id="toggle" type="checkbox">
+          <label class="toggle-container" for="toggle">
+            <span class="button button-toggle"></span>
+          </label>
+          <nav class="nav">
+          <a class="navItem" id="home"href="">to the front page</a>
+          <a class="navItem" id="about"href="">get to know me</a>
+          <a class="navItem" id="portfolio" href="">my playground</a>
+          <a class="navItem" id="contact" href="">say hello</a>
+        </nav>
+      </footer>
+      <div id="grinHead"><img src="./assets/grin2.svg" alt="my lovely grin" height="100" width="100"></div>
+    </div>
 </body>
+
 </html>

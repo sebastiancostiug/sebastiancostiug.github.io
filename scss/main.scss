@@ -1,16 +1,25 @@
 @import "partials/variables";
 @import "partials/mixins";
 @import "partials/reset";
+html {
+	height: 100%;
+}
 body {
+	height: 100%;
 	background-color: map-get($colormap, dark);
+	color: map-get($colormap, light);
 	font-family: 'Nexa Light', sans-serif;
 }
-.container-fluid {
+a {
+	text-decoration: none;
+	color: map-get($colormap, light);
+}
+.container {
 	display: flex;
 	justify-content: space-between;
 	flex-direction: column;
 	background-color: map-get($colormap, dark);
-	height: 100vh;
+	height: 100%;
 	margin: 0 auto;
 	.row {
 		width: 100%;
@@ -19,23 +28,223 @@ body {
 		@include clearfix();
 		@media only screen {
 			[class*='col-'] {
-				float: none;
 				width: 100%;
 				display: flex;
 				align-items: center;
 				justify-content: center;
 			}
 		}
-		@media only screen and (min-width: 375px) {
-			@for $i from 1 through $colNo {
-				.col-#{$i} {
-					width: $i*$colStep +0%;
+	}
+}
+@media only screen {
+	.container {
+		align-items: flex-end;
+	}
+	header {
+		&.row {
+			.col-4 {
+				&:first-child {
+					margin-top: .3em;
+					margin-right: .9em;
+					font-size: 3em;
+				}
+				&:nth-child(2) {
+					margin-top: -1.75em;
+					margin-right: .5em;
+					justify-content: flex-end;
+					div {
+						> :first-child {
+							font-size: 2em;
+						}
+						> :last-child {
+							font-family: Nexa Bold;
+							font-size: 4em;
+						}
+					}
+				}
+				&:last-child {
+					justify-content: flex-end;
+					font-size: .75em;
+					margin-top: -1em;
+					letter-spacing: .75em;
 				}
 			}
 		}
+	}
+	footer.navMenu {
+		position: relative;
+		overflow: hidden;
+	}
+	/* Toggle Functionality */
+	#toggle {
+		display: none; //hides the checkbox
+	}
+	// Styles for the 'open' state, if the checkbox is checked
+	#toggle:checked {
+		//Any element you need to change the style if menu is open goes here, using the sibling selector (~)
+		& ~ .toggle-container .button-toggle {
+			//box-shadow: 0 0 0 768px rgba(0, 0, 0, 0.1), inset 0 0 0 20px rgba(0, 0, 0, 0.1);
+
+			&:before {
+				transform: translateY(-50%) rotate(45deg) scale(1);
+			}
+			&:after {
+				transform: translateY(-50%) rotate(-45deg) scale(1);
+			}
+		}
+		// Open nav
+		& ~ .nav {
+			justify-content: space-around;
+			margin-bottom: 3.5em;
+			pointer-events: auto;
+			transform: translate(50px, 50px);
+			padding-right: 1em;
+			// Restoring nav items from 'lines' in the menu icon
+			.navItem {
+				color: map-get($colormap, light);
+				letter-spacing: .75em;
+				height: 40px;
+				line-height: 40px;
+				margin-top: 0;
+				opacity: 1;
+				transform: scaleY(1);
+				transition: $transition-duration, opacity 0.1s;
+				// Setting delays for the nav items in open transition
+				@for $i from 1 through $items {
+					&:nth-child(#{$i}) {
+						$delay: ($items - $i) * $transition-delay;
+						transition-delay: $delay;
+						&:before {
+							transition-delay: $delay;
+						}
+					}
+				}
+				// Hide the lines
+				&:before {
+					opacity: 0;
+				}
+			}
+		}
+	}
+	/* Toggle Button */
+	.button-toggle {
+		position: absolute;
+		display: inline-block;
+		right: 0;
+		width: 4em;
+		height: 4em;
+		margin: .75em;
+		background-color: transparent;
+		border: none;
+		cursor: pointer;
+		border-radius: 100%;
+		transition: $transition-duration + 0.1;
+		// Shadow on Hover
+		&:hover {
+			//box-shadow: 0 0 0 8px rgba(#69140e, 0.8), inset 0 0 0 20px rgba(#69140e, 0.8);
+		}
+		// Making the 'X' icon using `:before` and `:after` pseudo-elements
+		// Initially hidden beause of `scale(0)` transformation
+		&:before,
+		&:after {
+			position: absolute;
+			content: '';
+			top: 50%;
+			right: 1.5em;
+			width: 35%;
+			height: .1em;
+			background-color: map-get($colormap, light);
+			border-radius: .5em;
+			transition: $transition-duration;
+		}
+		&:before {
+			transform: translateY(-50%) rotate(45deg) scale(0);
+		}
+		&:after {
+			transform: translateY(50%) rotate(-45deg) scale(0);
+		}
+	}
+	/* Menu */
+	.nav {
+		display: inline-block;
+		margin: 2em 3em 3em;
+		width: 768px;
+		pointer-events: none;
+		transition: $transition-duration;
+	}
+	// Showing nav items as lines, making up the hamburger menu icon
+	.navItem {
+		position: relative;
+		display: inline-block;
+		float: right;
+		clear: both;
+		color: transparent;
+		font-size: .85rem;
+		letter-spacing: -.45em;
+		height: .6em;
+		line-height: .3em;
+		//text-transform: uppercase;
+		white-space: nowrap;
+		transform: scaleY(0.2);
+		transition: $transition-duration, opacity 1s;
+		//Set delays for the nav items in close transition
+		@for $i from 1 through $items {
+			&:nth-child(#{$i}) {
+				$delay: ($i - 1) * $transition-delay;
+				transition-delay: $delay;
+				&:before {
+					transition-delay: $delay;
+				}
+			}
+		}
+		// Adjusting width for first line
+		&:nth-child(1) {
+			letter-spacing: -.3rem;
+		}
+		// Adjusting width for second line
+		&:nth-child(2) {
+			letter-spacing: -.32rem;
+		}
+		// Adjusting the fourth element onwards
+		&:nth-child(3) {
+			letter-spacing: -.35rem;
+		}
+		&:nth-child(4) {
+			letter-spacing: -.20rem;
+		}
+		&:before {
+			position: absolute;
+			content: '';
+			top: 50%;
+			right: 0;
+			width: 100%;
+			height: 2px;
+			background-color: map-get($colormap, light);
+			transform: translateY(-50%) scaleY(5);
+			transition: $transition-duration;
+		}
+	}
+	#grinHead {
+		z-index: -1;
+		position: fixed;
+		bottom: -14%;
+		left: -8%;
+		width: 30%;
+		height: 30%;
+		img {
+			width: 30%;
+			height: auto;
+		}
+	}
+	.row {
 		&.content {
+			display: flex;
+			flex-direction: column;
+			justify-content: flex-start;
+			align-items: flex-start;
 			position: fixed;
-			top: 25vh;
+			top: 25%;
+			height: 100%;
 		}
 		> .neutral {
 			height: 7vh;
@@ -52,10 +261,11 @@ body {
 			}
 		}
 		> .accent {
-			padding-top: 3.5vh;
+			//padding-top: 2%;
 			z-index: 0;
 			height: 7vh;
 			background-color: map-get($colormap, accent);
+			overflow: auto;
 			> .portfolio {
 				height: 100%;
 				> ul {
@@ -63,191 +273,54 @@ body {
 						width: 100%;
 						margin: 0;
 						padding: 0;
-						display: flex;
-						justify-content: flex-end;
 						> li {
-							padding-top: 2vh;
-							display: flex;
-							flex-direction: column;
-							justify-content: flex-start;
-							align-content: flex-end;
+							margin-right: 1em;
+							margin-left: 4em;
+							text-align: right;
+							padding-top: .1em;
 							list-style-type: none;
 							div {
-								color: map-get($colormap, light);
-								text-align: right;
-								&:first-child {
+								> a {
 									font-family: Nexa Bold;
-									font-size: 2rem;
+									text-shadow: .1rem .1rem .3rem #242423;
 								}
-								a {
-									text-decoration: none;
-									color: map-get($colormap, light);
-									&:hover {
-										color: map-get($colormap, light);
-										text-shadow: .1rem .1rem .1rem #242423;
-									}
+								margin: 1em 0;
+								&:first-child {
+									font-size: 1.5em;
 								}
 							}
 						}
 					}
 				}
 			}
-			#contactForm {
-				font-family: Nexa Light;
-				display: flex;
-				flex-direction: column;
-				justify-content: space-around;
-				align-items: flex-end;
-				> input {
-					font-family: Nexa Light;
-					margin: 1vh;
-					font-size: 1.2em;
-					text-align: center;
-					background-color: map-get($colormap, light);
-					color: map-get($colormap, dark);
-					border: none;
-					height: 2rem;
-					width: 50%;
-					border-radius: .1em;
-					-webkit-box-shadow: 0px 10px 20px -15px rgba(0, 0, 0, 1);
-					-moz-box-shadow: 0px 10px 20px -15px rgba(0, 0, 0, 1);
-					box-shadow: 0px 10px 20px -15px rgba(0, 0, 0, 1);
-				}
-				> textarea {
-					font-family: Nexa Light;
-					font-size: 1.2em;
-					margin: 1vh;
-					width: 50%;
-					background-color: map-get($colormap, light);
-					color: map-get($colormap, dark);
-					border: none;
-					border-radius: .1rem;
-					-webkit-box-shadow: 0px 10px 20px -15px rgba(0, 0, 0, 1);
-					-moz-box-shadow: 0px 10px 20px -15px rgba(0, 0, 0, 1);
-					box-shadow: 0px 10px 20px -15px rgba(0, 0, 0, 1);
-					resize: none;
-				}
+			.about {
 			}
-		}
-	}
-	header {
-		color: map-get($colormap, light);
-		font-family: Nexa Light;
-		.col-4 {
-			&.title {
-				position: relative;
-				div {
-					span {
-						display: inline-block;
-					}
+			> .contact {
+				form {
+					margin: 0;
 					display: flex;
-					&:first-child {
-						position: absolute;
-						right: 15rem;
-						top: 3rem;
-						span {
-							font-size: 5rem;
-						}
-					}
-					&:nth-child(2) {
-						position: absolute;
-						right: 0;
-						top: 4.5rem;
-						span {
-							> span:first-child {
-								font-size: 2rem;
-							}
-							> span:nth-child(2) {
-								font-family: Nexa Bold;
-								font-size: 5rem;
-								font-weight: 700;
-							}
-						}
-					}
-					&:last-child {
-						position: absolute;
-						right: 0;
-						top: 9rem;
-						font-size: 1rem;
-						letter-spacing: .75rem;
-					}
-				}
-				> :first-child {
-					font-weight: 100;
-					text-align: left;
-				}
-				> :nth-child(2) {
-					text-align: right;
-				}
-				> :last-child {
-					font-weight: 100;
-					text-align: center;
-				}
-			}
-		}
-	}
-	footer {
-		&.row {
-			font-family: Nexa Light;
-			background-color: map-get($colormap, dark);
-			.col-9 {
-				&.menu {
-					font-size: 1rem;
-					display: flex;
-					justify-content: space-around;
-					align-items: flex-end;
 					flex-direction: column;
-					padding-bottom: 5vh;
-					div {
-						&:hover {
-							span {
-								a {
-									animation-name: menuItemMove;
-									animation-duration: 0.3s;
-									animation-iteration-count: 1;
-									animation-fill-mode: forwards;
-									animation-timing-function: ease-out;
-									@keyframes menuItemMove {
-										from {
-											left: 0px;
-											top: 0px;
-										}
-										to {
-											left: -.3rem;
-											top: -.3rem;
-										}
-									}
-									text-shadow: .3rem .3rem .15rem #ffffff;
-								}
-							}
-						}
-						margin: 1em 0;
-						letter-spacing: .75rem;
-						span {
-							a {
-								position: relative;
-								color: map-get($colormap, light);
-								text-decoration: none;
-							}
-						}
+					justify-content: flex-start;
+					align-items: center;
+					input {
+						height: 2rem;
+						width: 100%;
+						border: none;
+						border-radius: 5px;
+						margin: 1em;
+					}
+					textarea {
+						width: 100%;
+						height: 4rem;
+						border: none;
+						border-radius: 5px;
+						margin: 1em;
 					}
 				}
 			}
 		}
 	}
 }
-#grinHead {
-	position: fixed;
-	bottom: 20vh;
-	left: -8vw;
-	width: 30vw;
-	height: 30vh;
-	img {
-		width: 30vw;
-		height: auto;
-	}
-}
-
 .hide {
 	display: none !important;
 }

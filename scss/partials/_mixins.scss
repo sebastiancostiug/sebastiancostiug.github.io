@@ -6,8 +6,9 @@
 		clear: both;
 	}
 }
-@mixin tablet {
-	@media (min-width: #{$tablet-width}) {
-		@content;
-	}
-}
+
+//@mixin tablet {
+//	@media (min-width: #{$tablet-width}) {
+//		@content;
+//	}
+//}

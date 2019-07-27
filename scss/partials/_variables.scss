@@ -5,6 +5,9 @@ $tablet: "(min-width: 768px) and (max-width: 1023px)";
 $desktop: "(min-width: 1024px)";
 $tablet-width: 768px;
 $desktop-width: 1024px;
+$items: 4;
+$transition-duration: 0.5s;
+$transition-delay: 0.05s;
 
 @font-face {
 	font-family: 'Nexa Light';
