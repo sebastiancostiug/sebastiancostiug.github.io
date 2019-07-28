@@ -391,6 +391,7 @@ a {
     -webkit-box-pack: center;
         -ms-flex-pack: center;
             justify-content: center;
+    margin-bottom: 1em;
   }
   .row > .accent .about > div:last-child button {
     width: 75%;
