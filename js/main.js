@@ -19,9 +19,16 @@ $(document).ready(function(e) {
 		} else if ($(this).is(":checked")) {
 			console.log(percentHight + " --ELSE IF MENU CLOSED");
 			$("div.accent").animate({ height: "30%" }, 500);
+			if (grinHeadPosition != grinHead.position()) {
+				grinHead.fadeOut(100);
+			}
 		} else if (!$(this).is(":checked")) {
 			console.log(percentHight + " --ELSE IF MENU OPEN");
-			$("div.accent").animate({ height: "50%" }, 500);
+			$("div.accent").animate({ height: "55%" }, 500);
+			if (grinHeadPosition != grinHead.position()) {
+				console.log;
+				grinHead.delay(500).fadeIn(500);
+			}
 		}
 	});
 	portfolioBtn.click(function(e) {
@@ -45,10 +52,11 @@ $(document).ready(function(e) {
 		menu.delay(500).fadeIn(1000);
 		if (grinHeadPosition.top == presentGrinHeadPosition.top && containerWidth > 736) {
 			grinHead.fadeOut(500);
+			grinHead.css("z-index", "0");
 			grinHead.animate(
 				{
-					left : "-23%",
-					top  : "23%"
+					left : "0",
+					top  : "28%"
 				},
 				{
 					step     : function(now, fx) {
@@ -61,6 +69,9 @@ $(document).ready(function(e) {
 				1000
 			);
 			grinHead.fadeIn(500);
+		} else {
+			grinHead.fadeOut(1000);
+			grinHead.delay(2000).fadeIn(1000);
 		}
 		$("section.contact").fadeOut(500);
 		$("section.about").fadeOut(500);
@@ -87,10 +98,11 @@ $(document).ready(function(e) {
 		menu.delay(500).fadeIn(1000);
 		if (grinHeadPosition.top == presentGrinHeadPosition.top && containerWidth > 736) {
 			grinHead.fadeOut(500);
+			grinHead.css("z-index", "0");
 			grinHead.animate(
 				{
-					left : "-23%",
-					top  : "23%"
+					left : "0",
+					top  : "28%"
 				},
 				{
 					step     : function(now, fx) {
@@ -103,6 +115,9 @@ $(document).ready(function(e) {
 				1000
 			);
 			grinHead.fadeIn(500);
+		} else {
+			grinHead.fadeOut(1000);
+			grinHead.delay(2000).fadeIn(1000);
 		}
 		$("section.portfolio").fadeOut(500);
 		$("section.about").fadeOut(500);
@@ -131,10 +146,11 @@ $(document).ready(function(e) {
 		menu.delay(500).fadeIn(1000);
 		if (grinHeadPosition.top == presentGrinHeadPosition.top && containerWidth > 736) {
 			grinHead.fadeOut(500);
+			grinHead.css("z-index", "0");
 			grinHead.animate(
 				{
-					left : "-23%",
-					top  : "23%"
+					left : "0",
+					top  : "28%"
 				},
 				{
 					step     : function(now, fx) {
@@ -147,6 +163,9 @@ $(document).ready(function(e) {
 				1000
 			);
 			grinHead.fadeIn(500);
+		} else {
+			grinHead.fadeOut(1000);
+			grinHead.delay(2000).fadeIn(1000);
 		}
 		$("section.portfolio").fadeOut(500);
 		$("section.contact").fadeOut(500);

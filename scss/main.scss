@@ -28,22 +28,21 @@ a {
 		display: flex;
 		flex-wrap: wrap;
 		@include clearfix();
-		@media only screen {
-			[class*='col-'] {
-				width: 100%;
-				display: flex;
-				align-items: center;
-				justify-content: center;
-			}
-		}
 	}
 }
 @media only screen {
+	[class*='col-'] {
+		width: 100%;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
 	.container {
 		align-items: flex-end;
 	}
 	header {
 		&.row {
+			z-index: 2;
 			.col-4 {
 				&:first-child {
 					margin-top: .3em;
@@ -74,6 +73,7 @@ a {
 		}
 	}
 	footer.navMenu {
+		z-index: 2;
 		position: relative;
 		overflow: hidden;
 	}
@@ -301,11 +301,21 @@ a {
 				> div {
 					display: flex;
 					justify-content: space-between;
+					&:nth-child(2) {
+					}
 					&:last-child {
-						justify-content: center;
+						width: 100%;
+						flex-direction: column;
+						p {
+							width: 100%;
+							float: right;
+							text-align: right;
+							text-shadow: .2rem .2rem .2rem #69140e;
+						}
+						float: right;
 						margin-bottom: 1em;
 						button {
-							width: 75%;
+							width: 50%;
 							padding: .5em;
 							background-color: #242423;
 							border: none;
@@ -332,6 +342,9 @@ a {
 								height: auto;
 							}
 						}
+						h3 {
+							font-size: 2em;
+						}
 						&:last-child {
 							//flex-direction: column;
 							text-align: right;
@@ -339,6 +352,8 @@ a {
 					}
 				}
 				p {
+					width: 100%;
+					float: right;
 					text-align: right;
 				}
 			}
@@ -399,6 +414,413 @@ a {
 		}
 	}
 }
+@media only screen and (min-width: 736px) {
+	@for $i from 1 through $colNo {
+		.col-#{$i} {
+			width: $i*$colStep +0%;
+		}
+	}
+	header {
+		&.row {
+			position: relative;
+			z-index: 1;
+			padding: 2em;
+			flex-direction: column;
+			align-content: flex-end;
+			.col-4 {
+				width: 50%;
+				&:first-child {
+					font-size: 3em;
+					justify-content: flex-end;
+					margin: 0;
+					padding-right: 3em;
+				}
+				&:nth-child(2) {
+					justify-content: flex-end;
+					margin: 0;
+					margin-top: -1.5em;
+					div {
+						> :first-child {
+							font-size: 2em;
+						}
+						> :last-child {
+							font-family: Nexa Bold;
+							font-size: 4em;
+						}
+					}
+				}
+				&:last-child {
+					margin: 0;
+					justify-content: flex-end;
+					font-size: .75em;
+					letter-spacing: .75em;
+				}
+			}
+		}
+	}
+
+	footer.navMenu {
+		position: relative;
+		overflow: hidden;
+	}
+
+	/* Toggle Functionality */
+	#toggle {
+		display: none; //hides the checkbox
+	}
+	// Styles for the 'open' state, if the checkbox is checked
+	#toggle:checked {
+		//Any element you need to change the style if menu is open goes here, using the sibling selector (~)
+		& ~ .toggle-container .button-toggle {
+			//box-shadow: 0 0 0 768px rgba(0, 0, 0, 0.1), inset 0 0 0 20px rgba(0, 0, 0, 0.1);
+
+			&:before {
+				transform: translateY(-50%) rotate(45deg) scale(1);
+			}
+			&:after {
+				transform: translateY(-50%) rotate(-45deg) scale(1);
+			}
+		}
+		// Open nav
+		& ~ .nav {
+			justify-content: space-around;
+			margin-bottom: 5em;
+			pointer-events: auto;
+			transform: translate(50px, 50px);
+			padding-right: 5em;
+			// Restoring nav items from 'lines' in the menu icon
+			.navItem {
+				color: map-get($colormap, light);
+				letter-spacing: .75em;
+				height: 40px;
+				line-height: 40px;
+				margin-top: 0;
+				opacity: 1;
+				transform: scaleY(1);
+				transition: $transition-duration, opacity 0.1s;
+				// Setting delays for the nav items in open transition
+				@for $i from 1 through $items {
+					&:nth-child(#{$i}) {
+						$delay: ($items - $i) * $transition-delay;
+						transition-delay: $delay;
+						&:before {
+							transition-delay: $delay;
+						}
+					}
+				}
+				// Hide the lines
+				&:before {
+					opacity: 0;
+				}
+			}
+		}
+	}
+	/* Toggle Button */
+	.button-toggle {
+		position: absolute;
+		display: inline-block;
+		right: 0;
+		width: 4em;
+		height: 4em;
+		margin: .75em;
+		background-color: transparent;
+		border: none;
+		cursor: pointer;
+		border-radius: 100%;
+		transition: $transition-duration + 0.1;
+		// Shadow on Hover
+		&:hover {
+			//box-shadow: 0 0 0 8px rgba(#69140e, 0.8), inset 0 0 0 20px rgba(#69140e, 0.8);
+		}
+		// Making the 'X' icon using `:before` and `:after` pseudo-elements
+		// Initially hidden beause of `scale(0)` transformation
+		&:before,
+		&:after {
+			position: absolute;
+			content: '';
+			top: 50%;
+			right: 1.5em;
+			width: 35%;
+			height: .1em;
+			background-color: map-get($colormap, light);
+			border-radius: .5em;
+			transition: $transition-duration;
+		}
+		&:before {
+			transform: translateY(-50%) rotate(45deg) scale(0);
+		}
+		&:after {
+			transform: translateY(50%) rotate(-45deg) scale(0);
+		}
+	}
+	/* Menu */
+	.nav {
+		display: inline-block;
+		margin: 2em 3em 3em;
+		width: 768px;
+		pointer-events: none;
+		transition: $transition-duration;
+		//&:before {
+		//	content: 'menu';
+		//	font-family: Nexa Bold;
+		//	font-size: 3em;
+		//	position: absolute;
+		//	right: 15%;
+		//	top: 20%;
+		//}
+	}
+	// Showing nav items as lines, making up the hamburger menu icon
+	.navItem {
+		position: relative;
+		display: inline-block;
+		float: right;
+		clear: both;
+		color: transparent;
+		font-size: 1em;
+		letter-spacing: -.45em;
+		height: .6em;
+		line-height: .3em;
+		//text-transform: uppercase;
+		white-space: nowrap;
+		transform: scaleY(0.2);
+		transition: $transition-duration, opacity 1s;
+		//Set delays for the nav items in close transition
+		@for $i from 1 through $items {
+			&:nth-child(#{$i}) {
+				$delay: ($i - 1) * $transition-delay;
+				transition-delay: $delay;
+				&:before {
+					transition-delay: $delay;
+				}
+			}
+		}
+		// Adjusting width for first line
+		&:nth-child(1) {
+			letter-spacing: -.3rem;
+		}
+		// Adjusting width for second line
+		&:nth-child(2) {
+			letter-spacing: -.32rem;
+		}
+		// Adjusting the fourth element onwards
+		&:nth-child(3) {
+			letter-spacing: -.35rem;
+		}
+		&:nth-child(4) {
+			letter-spacing: -.20rem;
+		}
+		&:before {
+			position: absolute;
+			content: '';
+			top: 50%;
+			right: 0;
+			width: 100%;
+			height: 2px;
+			background-color: map-get($colormap, light);
+			transform: translateY(-50%) scaleY(5);
+			transition: $transition-duration;
+		}
+	}
+	#grinHead {
+		position: fixed;
+		bottom: 9%;
+		left: -9%;
+		width: 35%;
+		height: 35%;
+		img {
+			width: 100%;
+			height: auto;
+		}
+	}
+	.row {
+		&.content {
+			display: flex;
+			flex-direction: column;
+			justify-content: flex-start;
+			align-items: flex-start;
+			position: fixed;
+			top: 25%;
+			height: 100%;
+		}
+		> .neutral {
+			height: 7vh;
+			z-index: 1;
+			&:first-child {
+				-webkit-box-shadow: 0px 10px 20px -15px rgba(0, 0, 0, 1);
+				-moz-box-shadow: 0px 10px 20px -15px rgba(0, 0, 0, 1);
+				box-shadow: 0px 10px 20px -15px rgba(0, 0, 0, 1);
+			}
+			&:last-child {
+				-webkit-box-shadow: 0px -10px 20px -15px rgba(0, 0, 0, 1);
+				-moz-box-shadow: 0px -10px 20px -15px rgba(0, 0, 0, 1);
+				box-shadow: 0px -10px 20px -15px rgba(0, 0, 0, 1);
+			}
+		}
+		> .accent {
+			//padding-top: 2%;
+			height: 7vh;
+			background-color: map-get($colormap, accent);
+			overflow: auto;
+			> .portfolio {
+				background-color: rgba(#69140e, .6);
+				position: relative;
+				z-index: 2;
+				width: 100%;
+				height: 100%;
+				> ul {
+					&.projList {
+						width: 100%;
+						margin: 0;
+						padding: 0;
+						> li {
+							margin-right: 2em;
+							margin-left: 4em;
+							text-align: right;
+							padding-top: .1em;
+							list-style-type: none;
+							text-shadow: .1rem .1rem .2rem #69140e;
+							div {
+								> a {
+									font-family: Nexa Bold;
+									text-shadow: .1rem .1rem .3rem #242423;
+								}
+								margin: 1em 0;
+								&:first-child {
+									font-size: 1.5em;
+								}
+							}
+						}
+					}
+				}
+			}
+			.about {
+				background-color: rgba(#69140e, .6);
+				position: relative;
+				overflow: auto;
+				z-index: 2;
+				height: 100%;
+				padding: 2%;
+				align-items: flex-end;
+				> div {
+					position: relative;
+					top: 2%;
+					display: flex;
+					justify-content: flex-end;
+					&:last-child {
+						justify-content: center;
+						margin-bottom: 1em;
+						width: 70%;
+						flex-direction: column;
+						p {
+							width: 100%;
+							float: right;
+							text-align: right;
+							text-shadow: .2rem .2rem .2rem #69140e;
+						}
+						button {
+							width: 75%;
+							padding: .5em;
+							background-color: #242423;
+							border: none;
+							border-radius: 7px;
+							text-shadow: .1rem .1rem .5rem #242423;
+							font-size: 1em;
+						}
+					}
+					&.col-8 {
+						flex-direction: column;
+					}
+					> div {
+						&#portrait {
+							position: fixed;
+							left: 2%;
+							background-image: url(../assets/seb.jpg);
+							background-size: cover;
+							background-position-x: 50%;
+							background-position-y: -50%;
+							width: 25vw;
+							height: 25vw;
+							border-radius: 10px;
+							-webkit-box-shadow: 0px 10px 20px -15px rgba(0, 0, 0, 3);
+							-moz-box-shadow: 0px 10px 20px -15px rgba(0, 0, 0, 3);
+							box-shadow: 0px 10px 20px -15px rgba(0, 0, 0, 3);
+						}
+						&:last-child {
+							flex-direction: column;
+							text-align: right;
+						}
+					}
+				}
+			}
+			> .contact {
+				position: relative;
+				z-index: 1;
+				height: 100%;
+				width: 100%;
+				display: flex;
+				flex-wrap: wrap;
+				justify-content: flex-end;
+				align-items: center;
+				#disabledForm {
+					//z-index: 1 !important;
+					position: absolute;
+					width: 100%;
+					height: 100%;
+					display: flex;
+					flex-wrap: nowrap;
+					flex-direction: column;
+					justify-content: center;
+					align-items: right;
+					background-color: rgba(#69140e, .9);
+					border-radius: 5px;
+					top: 0%;
+					left: 0%;
+					padding-right: 5%;
+					span {
+						text-align: right;
+						margin: 1%;
+						text-shadow: .1rem .1rem .5rem #242423;
+						a {
+							font-size: em;
+						}
+					}
+				}
+				form {
+					width: 75%;
+					margin: 0;
+					display: flex;
+					flex-direction: column;
+					justify-content: flex-start;
+					align-items: center;
+					input {
+						height: 2rem;
+						width: 80%;
+						border: none;
+						border-radius: 5px;
+						margin: 1em;
+						&[type="submit"] {
+							width: 30%;
+						}
+						-webkit-box-shadow: 0px 0px 15px -9px rgba(0, 0, 0, 0.75);
+						-moz-box-shadow: 0px 0px 15px -9px rgba(0, 0, 0, 0.75);
+						box-shadow: 0px 0px 15px -9px rgba(0, 0, 0, 0.75);
+					}
+					textarea {
+						width: 80%;
+						height: 4rem;
+						border: none;
+						border-radius: 5px;
+						margin: 1em;
+						-webkit-box-shadow: 0px 0px 15px -9px rgba(0, 0, 0, 0.75);
+						-moz-box-shadow: 0px 0px 15px -9px rgba(0, 0, 0, 0.75);
+						box-shadow: 0px 0px 15px -9px rgba(0, 0, 0, 0.75);
+					}
+				}
+			}
+		}
+	}
+}
+
 .hide {
 	display: none !important;
 }
