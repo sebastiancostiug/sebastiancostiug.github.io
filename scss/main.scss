@@ -12,6 +12,8 @@ body {
 }
 a {
 	text-decoration: none;
+	font-family: Nexa Bold;
+	text-shadow: .1rem .1rem .3rem #242423;
 	color: map-get($colormap, light);
 }
 .container {
@@ -226,10 +228,11 @@ a {
 	}
 	#grinHead {
 		position: fixed;
-		bottom: -14%;
-		left: -8%;
-		width: 30%;
-		height: 30%;
+		//z-index: 0;
+		bottom: -19%;
+		left: -11%;
+		width: 40%;
+		height: 40%;
 		img {
 			width: 100%;
 			height: auto;
@@ -261,7 +264,6 @@ a {
 		}
 		> .accent {
 			//padding-top: 2%;
-			z-index: 0;
 			height: 7vh;
 			background-color: map-get($colormap, accent);
 			overflow: auto;
@@ -281,7 +283,7 @@ a {
 							div {
 								> a {
 									font-family: Nexa Bold;
-									text-shadow: .1rem .1rem .3rem #242423;
+									//text-shadow: .1rem .1rem .3rem #242423;
 								}
 								margin: 1em 0;
 								&:first-child {
@@ -293,8 +295,84 @@ a {
 				}
 			}
 			.about {
+				height: 100%;
+				overflow: auto;
+				padding: 2%;
+				> div {
+					display: flex;
+					justify-content: space-between;
+					&:last-child {
+						justify-content: center;
+						button {
+							width: 75%;
+							padding: .5em;
+							background-color: #242423;
+							border: none;
+							border-radius: 7px;
+							text-shadow: .1rem .1rem .5rem #242423;
+							font-size: 1em;
+						}
+					}
+					> div {
+						&#portrait {
+							z-index: 2;
+							background-image: url(../assets/seb.jpg);
+							background-size: cover;
+							background-position-x: 50%;
+							background-position-y: -50%;
+							width: 40vw;
+							height: 40vw;
+							border-radius: 10px;
+							-webkit-box-shadow: 0px 10px 20px -15px rgba(0, 0, 0, 3);
+							-moz-box-shadow: 0px 10px 20px -15px rgba(0, 0, 0, 3);
+							box-shadow: 0px 10px 20px -15px rgba(0, 0, 0, 3);
+							img {
+								width: 100%;
+								height: auto;
+							}
+						}
+						&:last-child {
+							//flex-direction: column;
+							text-align: right;
+						}
+					}
+				}
+				p {
+					text-align: right;
+				}
 			}
 			> .contact {
+				position: relative;
+				z-index: 1;
+				height: 100%;
+				width: 100%;
+				display: flex;
+				flex-wrap: wrap;
+				justify-content: space-around;
+				align-items: center;
+				#disabledForm {
+					z-index: 1 !important;
+					position: absolute;
+					width: 90%;
+					height: 96%;
+					display: flex;
+					flex-wrap: nowrap;
+					flex-direction: column;
+					justify-content: center;
+					align-items: right;
+					background-color: rgba(#69140e, .9);
+					border-radius: 5px;
+					top: 2%;
+					left: 5%;
+					span {
+						text-align: right;
+						margin: 1%;
+						text-shadow: .1rem .1rem .5rem #242423;
+						a {
+							font-size: 2em;
+						}
+					}
+				}
 				form {
 					margin: 0;
 					display: flex;
@@ -303,13 +381,13 @@ a {
 					align-items: center;
 					input {
 						height: 2rem;
-						width: 100%;
+						width: 80%;
 						border: none;
 						border-radius: 5px;
 						margin: 1em;
 					}
 					textarea {
-						width: 100%;
+						width: 80%;
 						height: 4rem;
 						border: none;
 						border-radius: 5px;
