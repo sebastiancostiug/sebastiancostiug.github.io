@@ -21,6 +21,9 @@ $(document).ready(function(e) {
 			$("div.accent").animate({ height: "30%" }, 500);
 			if (grinHeadPosition != grinHead.position()) {
 				grinHead.fadeOut(100);
+				if (containerWidth > 736) {
+					$("#portrait").animate({ height: "25vh" });
+				}
 			}
 		} else if (!$(this).is(":checked")) {
 			console.log(percentHight + " --ELSE IF MENU OPEN");
@@ -28,6 +31,9 @@ $(document).ready(function(e) {
 			if (grinHeadPosition != grinHead.position()) {
 				console.log;
 				grinHead.delay(500).fadeIn(500);
+				if (containerWidth > 736) {
+					$("#portrait").animate({ height: "35vh" });
+				}
 			}
 		}
 	});
@@ -56,7 +62,7 @@ $(document).ready(function(e) {
 			grinHead.animate(
 				{
 					left : "0",
-					top  : "28%"
+					top  : "30%"
 				},
 				{
 					step     : function(now, fx) {
@@ -102,7 +108,7 @@ $(document).ready(function(e) {
 			grinHead.animate(
 				{
 					left : "0",
-					top  : "28%"
+					top  : "30%"
 				},
 				{
 					step     : function(now, fx) {
@@ -150,7 +156,7 @@ $(document).ready(function(e) {
 			grinHead.animate(
 				{
 					left : "0",
-					top  : "28%"
+					top  : "30%"
 				},
 				{
 					step     : function(now, fx) {
@@ -174,10 +180,8 @@ $(document).ready(function(e) {
 	homeBtn.click(function(e) {
 		e.preventDefault();
 		navMenuToggle.prop("checked", false);
-		var presentGrinHeadPosition = grinHead.position();
 		var contentSection = $("div.accent");
 		var contentContainer = $("section.content");
-		var contentHeight = Math.floor(containerHeight - headerHeight - footerHeight - 2 * neutralHeight);
 		contentContainer.animate({ top: "25%" }, 1000);
 		contentSection.animate({ height: "7vh" }, 1000);
 		menu.fadeOut(500);
@@ -190,25 +194,9 @@ $(document).ready(function(e) {
 			next();
 		});
 		menu.delay(500).fadeIn(1000);
-		if (grinHeadPosition.top == presentGrinHeadPosition.top && containerWidth > 736) {
-			grinHead.fadeOut(500);
-			grinHead.animate(
-				{
-					left : "-23%",
-					top  : "23%"
-				},
-				{
-					step     : function(now, fx) {
-						$(this).css("-webkit-transform", "rotate(" + now * 2.5 + "deg)");
-						$(this).css("-moz-transform", "rotate(" + now * 2.5 + "deg)");
-						$(this).css("transform", "rotate(" + now * 2.5 + "deg)");
-					},
-					duration : 1000
-				},
-				1000
-			);
-			grinHead.fadeIn(500);
-		}
+		grinHead.fadeOut(500);
+		grinHead.delay(500).attr("style", "");
+		grinHead.fadeIn(500);
 		$("section.portfolio").fadeOut(500);
 		$("section.contact").fadeOut(500);
 		$("section.about").fadeOut(500);
