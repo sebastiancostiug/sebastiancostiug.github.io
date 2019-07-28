@@ -237,7 +237,6 @@ a {
   }
   .navItem {
     position: relative;
-    display: inline-block;
     float: right;
     clear: both;
     color: transparent;
@@ -681,10 +680,10 @@ a {
   .button-toggle {
     position: absolute;
     display: inline-block;
-    right: 0;
-    width: 4em;
-    height: 4em;
-    margin: .75em;
+    right: 1%;
+    width: 5em;
+    height: 5em;
+    margin: 1em;
     background-color: transparent;
     border: none;
     cursor: pointer;
@@ -723,7 +722,6 @@ a {
   }
   .navItem {
     position: relative;
-    display: inline-block;
     float: right;
     clear: both;
     color: transparent;
@@ -795,6 +793,7 @@ a {
     transition: 0.5s;
   }
   #grinHead {
+    z-index: 0;
     position: fixed;
     bottom: 9%;
     left: -9%;
@@ -843,7 +842,7 @@ a {
   .row > .accent > .portfolio {
     background-color: rgba(105, 20, 14, 0.6);
     position: relative;
-    z-index: 2;
+    z-index: 1;
     width: 100%;
     height: 100%;
   }
