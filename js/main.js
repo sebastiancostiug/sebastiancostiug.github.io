@@ -1,4 +1,5 @@
 $(document).ready(function(e) {
+	var homeBtn = $("#home");
 	var portfolioBtn = $("#portfolio");
 	var aboutBtn = $("#about");
 	var contactBtn = $("#contact");
@@ -34,6 +35,7 @@ $(document).ready(function(e) {
 		contentSection.animate({ height: `${contentHeight}px` }, 1000);
 		menu.fadeOut(500);
 		portfolioBtn.delay(500).fadeOut(500);
+		homeBtn.delay(500).fadeIn(1000);
 		contactBtn.delay(500).fadeIn(1000);
 		aboutBtn.delay(500).fadeIn(1000);
 		menu.delay(600).queue(function(next) {
@@ -75,6 +77,7 @@ $(document).ready(function(e) {
 		contentSection.animate({ height: `${contentHeight}px` }, 1000);
 		menu.fadeOut(500);
 		contactBtn.delay(500).fadeOut(500);
+		homeBtn.delay(500).fadeIn(1000);
 		portfolioBtn.delay(500).fadeIn(1000);
 		aboutBtn.delay(500).fadeIn(1000);
 		menu.delay(600).queue(function(next) {
@@ -118,6 +121,7 @@ $(document).ready(function(e) {
 		contentSection.animate({ height: `${contentHeight}px` }, 1000);
 		menu.fadeOut(500);
 		aboutBtn.delay(500).fadeOut(500);
+		homeBtn.delay(500).fadeIn(1000);
 		contactBtn.delay(500).fadeIn(1000);
 		portfolioBtn.delay(500).fadeIn(1000);
 		menu.delay(600).queue(function(next) {
@@ -147,5 +151,47 @@ $(document).ready(function(e) {
 		$("section.portfolio").fadeOut(500);
 		$("section.contact").fadeOut(500);
 		$("section.about").delay(1000).fadeIn(1000);
+	});
+	homeBtn.click(function(e) {
+		e.preventDefault();
+		navMenuToggle.prop("checked", false);
+		var presentGrinHeadPosition = grinHead.position();
+		var contentSection = $("div.accent");
+		var contentContainer = $("section.content");
+		var contentHeight = Math.floor(containerHeight - headerHeight - footerHeight - 2 * neutralHeight);
+		contentContainer.animate({ top: "25%" }, 1000);
+		contentSection.animate({ height: "7vh" }, 1000);
+		menu.fadeOut(500);
+		homeBtn.delay(500).fadeOut(500);
+		aboutBtn.delay(500).fadeIn(1000);
+		contactBtn.delay(500).fadeIn(1000);
+		portfolioBtn.delay(500).fadeIn(1000);
+		menu.delay(600).queue(function(next) {
+			$(this).css("flex-direction", "row");
+			next();
+		});
+		menu.delay(500).fadeIn(1000);
+		if (grinHeadPosition.top == presentGrinHeadPosition.top && containerWidth > 736) {
+			grinHead.fadeOut(500);
+			grinHead.animate(
+				{
+					left : "-23%",
+					top  : "23%"
+				},
+				{
+					step     : function(now, fx) {
+						$(this).css("-webkit-transform", "rotate(" + now * 2.5 + "deg)");
+						$(this).css("-moz-transform", "rotate(" + now * 2.5 + "deg)");
+						$(this).css("transform", "rotate(" + now * 2.5 + "deg)");
+					},
+					duration : 1000
+				},
+				1000
+			);
+			grinHead.fadeIn(500);
+		}
+		$("section.portfolio").fadeOut(500);
+		$("section.contact").fadeOut(500);
+		$("section.about").fadeOut(500);
 	});
 });
