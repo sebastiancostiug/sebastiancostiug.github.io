@@ -298,6 +298,7 @@ a {
 				height: 100%;
 				overflow: auto;
 				padding: 2%;
+				font-family: 'Nexa Light';
 				> div {
 					display: flex;
 					justify-content: space-between;
@@ -439,7 +440,7 @@ a {
 							font-size: 2em;
 						}
 						> :last-child {
-							font-family: Nexa Bold;
+							font-family: 'Nexa Bold';
 							font-size: 4em;
 						}
 					}

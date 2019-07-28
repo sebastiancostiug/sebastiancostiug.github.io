@@ -379,6 +379,7 @@ a {
     height: 100%;
     overflow: auto;
     padding: 2%;
+    font-family: 'Nexa Light';
   }
   .row > .accent .about > div {
     display: -webkit-box;
@@ -587,7 +588,7 @@ a {
     font-size: 2em;
   }
   header.row .col-4:nth-child(2) div > :last-child {
-    font-family: Nexa Bold;
+    font-family: 'Nexa Bold';
     font-size: 4em;
   }
   header.row .col-4:last-child {
