@@ -231,7 +231,6 @@ a {
 	}
 	#grinHead {
 		position: fixed;
-		//z-index: 0;
 		bottom: -19%;
 		left: -11%;
 		width: 40%;
@@ -267,6 +266,7 @@ a {
 		}
 		> .accent {
 			//padding-top: 2%;
+			z-index: 0;
 			height: 7vh;
 			background-color: map-get($colormap, accent);
 			overflow: auto;
