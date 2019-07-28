@@ -66,9 +66,9 @@ $(document).ready(function(e) {
 				},
 				{
 					step     : function(now, fx) {
-						$(this).css("-webkit-transform", "rotate(" + now * 2.5 + "deg)");
-						$(this).css("-moz-transform", "rotate(" + now * 2.5 + "deg)");
-						$(this).css("transform", "rotate(" + now * 2.5 + "deg)");
+						$(this).css("-webkit-transform", "rotate(" + now * 2 + "deg)");
+						$(this).css("-moz-transform", "rotate(" + now * 2 + "deg)");
+						$(this).css("transform", "rotate(" + now * 2 + "deg)");
 					},
 					duration : 1000
 				},
@@ -112,9 +112,9 @@ $(document).ready(function(e) {
 				},
 				{
 					step     : function(now, fx) {
-						$(this).css("-webkit-transform", "rotate(" + now * 2.5 + "deg)");
-						$(this).css("-moz-transform", "rotate(" + now * 2.5 + "deg)");
-						$(this).css("transform", "rotate(" + now * 2.5 + "deg)");
+						$(this).css("-webkit-transform", "rotate(" + now * 2 + "deg)");
+						$(this).css("-moz-transform", "rotate(" + now * 2 + "deg)");
+						$(this).css("transform", "rotate(" + now * 2 + "deg)");
 					},
 					duration : 1000
 				},
@@ -129,7 +129,7 @@ $(document).ready(function(e) {
 		$("section.about").fadeOut(500);
 		$("section.contact").delay(1000).fadeIn(1000);
 		$("#contactForm :input").prop("disabled", true);
-		$("#disabledForm").delay(5000).fadeIn(3000);
+		$("#disabledForm").delay(2500).fadeIn(3000);
 	});
 	aboutBtn.click(function(e) {
 		e.preventDefault();
@@ -160,9 +160,9 @@ $(document).ready(function(e) {
 				},
 				{
 					step     : function(now, fx) {
-						$(this).css("-webkit-transform", "rotate(" + now * 2.5 + "deg)");
-						$(this).css("-moz-transform", "rotate(" + now * 2.5 + "deg)");
-						$(this).css("transform", "rotate(" + now * 2.5 + "deg)");
+						$(this).css("-webkit-transform", "rotate(" + now * 2 + "deg)");
+						$(this).css("-moz-transform", "rotate(" + now * 2 + "deg)");
+						$(this).css("transform", "rotate(" + now * 2 + "deg)");
 					},
 					duration : 1000
 				},
