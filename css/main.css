@@ -31,7 +31,7 @@ body {
 
 a {
   text-decoration: none;
-  font-family: Nexa Bold;
+  font-family: 'Nexa Bold';
   text-shadow: .1rem .1rem .3rem #242423;
   color: #f7f7f2;
 }
@@ -89,6 +89,7 @@ a {
     z-index: 2;
   }
   header.row .col-4:first-child {
+    font-family: 'Nexa Light';
     margin-top: .3em;
     margin-right: .9em;
     font-size: 3em;
@@ -101,13 +102,15 @@ a {
             justify-content: flex-end;
   }
   header.row .col-4:nth-child(2) div > :first-child {
+    font-family: 'Nexa Light';
     font-size: 2em;
   }
   header.row .col-4:nth-child(2) div > :last-child {
-    font-family: Nexa Bold;
+    font-family: 'Nexa Bold';
     font-size: 4em;
   }
   header.row .col-4:last-child {
+    font-family: 'Nexa Light';
     -webkit-box-pack: end;
         -ms-flex-pack: end;
             justify-content: flex-end;
@@ -370,7 +373,7 @@ a {
     margin: 1em 0;
   }
   .row > .accent > .portfolio > ul.projList > li div > a {
-    font-family: Nexa Bold;
+    font-family: 'Nexa Bold';
   }
   .row > .accent > .portfolio > ul.projList > li div:first-child {
     font-size: 1.5em;
@@ -399,6 +402,7 @@ a {
     margin-bottom: 1em;
   }
   .row > .accent .about > div:last-child p {
+    font-family: 'Nexa Light';
     width: 100%;
     float: right;
     text-align: right;
@@ -426,10 +430,12 @@ a {
     box-shadow: 0px 10px 20px -15px black;
   }
   .row > .accent .about > div > div h3 {
+    font-family: 'Nexa Light';
     font-size: 2em;
     margin-top: 0;
   }
   .row > .accent .about > div > div:last-child {
+    font-family: 'Nexa Light';
     text-align: right;
   }
   .row > .accent .about p {
@@ -858,7 +864,7 @@ a {
     margin: 1em 0;
   }
   .row > .accent > .portfolio > ul.projList > li div > a {
-    font-family: Nexa Bold;
+    font-family: 'Nexa Bold';
     text-shadow: .1rem .1rem .3rem #242423;
   }
   .row > .accent > .portfolio > ul.projList > li div:first-child {
