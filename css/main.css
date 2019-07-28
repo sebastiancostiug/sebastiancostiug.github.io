@@ -424,12 +424,9 @@ a {
     -webkit-box-shadow: 0px 10px 20px -15px black;
     box-shadow: 0px 10px 20px -15px black;
   }
-  .row > .accent .about > div > div#portrait img {
-    width: 100%;
-    height: auto;
-  }
   .row > .accent .about > div > div h3 {
     font-size: 2em;
+    margin-top: 0;
   }
   .row > .accent .about > div > div:last-child {
     text-align: right;

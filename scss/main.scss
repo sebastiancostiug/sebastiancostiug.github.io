@@ -301,8 +301,6 @@ a {
 				> div {
 					display: flex;
 					justify-content: space-between;
-					&:nth-child(2) {
-					}
 					&:last-child {
 						width: 100%;
 						flex-direction: column;
@@ -337,13 +335,10 @@ a {
 							-webkit-box-shadow: 0px 10px 20px -15px rgba(0, 0, 0, 3);
 							-moz-box-shadow: 0px 10px 20px -15px rgba(0, 0, 0, 3);
 							box-shadow: 0px 10px 20px -15px rgba(0, 0, 0, 3);
-							img {
-								width: 100%;
-								height: auto;
-							}
 						}
 						h3 {
 							font-size: 2em;
+							margin-top: 0;
 						}
 						&:last-child {
 							//flex-direction: column;
