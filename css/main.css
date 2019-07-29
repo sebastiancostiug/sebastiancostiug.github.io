@@ -415,6 +415,11 @@ a {
     border-radius: 7px;
     text-shadow: .1rem .1rem .5rem #242423;
     font-size: 1em;
+    color: #f7f7f2;
+    font-family: 'Nexa Bold';
+  }
+  .row > .accent .about > div:last-child button:hover {
+    cursor: pointer;
   }
   .row > .accent .about > div > div#portrait {
     z-index: 2;
@@ -871,6 +876,7 @@ a {
   }
   .row > .accent .about {
     background-color: rgba(105, 20, 14, 0.6);
+    width: 100%;
     position: relative;
     overflow: auto;
     z-index: 2;
@@ -908,13 +914,18 @@ a {
     text-shadow: .2rem .2rem .2rem #69140e;
   }
   .row > .accent .about > div:last-child button {
-    width: 75%;
+    width: 30%;
     padding: .5em;
     background-color: #242423;
     border: none;
     border-radius: 7px;
     text-shadow: .1rem .1rem .5rem #242423;
     font-size: 1em;
+    color: #f7f7f2;
+    font-family: 'Nexa Bold';
+  }
+  .row > .accent .about > div:last-child button:hover {
+    cursor: pointer;
   }
   .row > .accent .about > div.col-8 {
     -webkit-box-orient: vertical;
