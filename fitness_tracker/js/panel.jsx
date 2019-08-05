@@ -1,5 +1,7 @@
 import React, { Component, Fragment } from "react";
 import { Link } from "react-router-dom";
+import { Redirect } from "react-router";
+
 class PanelBtn extends Component {
 	doClick() {
 		if (typeof this.props.wasClicked === "function") {
@@ -8,38 +10,83 @@ class PanelBtn extends Component {
 	}
 	render() {
 		let { scope, fasIcon } = this.props;
-		return (
-			<Fragment>
-				<div className={scope} onClick={this.doClick.bind(this)}>
-					<span>
-						<i className={fasIcon} />
-					</span>
-					<span>{scope}</span>
-				</div>
-			</Fragment>
-		);
+		if (this.props.scope == "back") {
+			return (
+				<Link to="/">
+					<div className={scope} onClick={this.doClick.bind(this)}>
+						<span>
+							<i className={fasIcon} />
+						</span>
+						<span>{scope}</span>
+					</div>
+				</Link>
+			);
+		} else {
+			return (
+				<Fragment>
+					<div className={scope} onClick={this.doClick.bind(this)}>
+						<span>
+							<i className={fasIcon} />
+						</span>
+						<span>{scope}</span>
+					</div>
+				</Fragment>
+			);
+		}
 	}
 }
 class CtrlPanel extends Component {
-	wasClicked() {
-		if (this.props.scope == "back") {
+	constructor(props) {
+		super(props);
+		this.state = {
+			isStarted : this.props.isStarted
+		};
+	}
+
+	wasClicked(scope) {
+		if (scope == "back") {
+			<Redirect push to="/" />;
+		} else if (scope == "start") {
+			if (typeof this.props.handleClick === "function") {
+				this.props.handleClick(true);
+			}
+		} else if (scope == "reset") {
+			this.props.handleClick(false);
+		} else if (scope == "pause") {
+			//pause the countdowd
 		}
 	}
 	render() {
-		return (
-			<Fragment>
-				<div className="ctrlPanel">
-					<div className="buttons">
-						<Link to="/">
-							<PanelBtn scope="back" fasIcon="fas fa-play" wasClicked={this.wasClicked.bind(this)} />
-						</Link>
-						<Link to="/sweat">
-							<PanelBtn scope="start" fasIcon="fas fa-play" wasClicked={this.wasClicked.bind(this)} />
-						</Link>
+		if (this.state.isStarted) {
+			return (
+				<Fragment>
+					<div className="ctrlPanel">
+						<div className="buttons">
+							<PanelBtn scope="reset" fasIcon="fas fa-undo-alt" wasClicked={this.wasClicked.bind(this)} />
+							<PanelBtn scope="pause" fasIcon="fas fa-pause" wasClicked={this.wasClicked.bind(this)} />
+						</div>
 					</div>
-				</div>
-			</Fragment>
-		);
+				</Fragment>
+			);
+		} else {
+			return (
+				<Fragment>
+					<div className="ctrlPanel">
+						<div className="buttons">
+							<PanelBtn scope="back" fasIcon="fas fa-play" wasClicked={this.wasClicked.bind(this)} />
+							<PanelBtn
+								scope="start"
+								fasIcon="fas fa-play"
+								wasClicked={this.wasClicked.bind(this)}
+								workTime={this.props.workTime}
+								restTime={this.props.restTime}
+								roundsNumber={this.props.roundsNumber}
+							/>
+						</div>
+					</div>
+				</Fragment>
+			);
+		}
 	}
 }
 export { CtrlPanel };

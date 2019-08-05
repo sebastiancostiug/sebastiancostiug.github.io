@@ -1,6 +1,7 @@
 import React, { Component, Fragment } from "react";
 import { CtrlPanel } from "./panel.jsx";
 import { Trigger } from "./trigger.jsx";
+import { Overview } from "./overview.jsx";
 
 class Sweat extends Component {
 	constructor(props) {
@@ -9,8 +10,12 @@ class Sweat extends Component {
 			measuredValue : 0,
 			workTime      : 0,
 			restTime      : 0,
-			roundsNumber  : 0
+			roundsNumber  : 0,
+			isStarted     : false
 		};
+	}
+	handleClick(arg) {
+		this.setState({ isStarted: arg });
 	}
 	wasDragged(event) {
 		let slidersHeight = document.querySelector("div.mainDisplay>section.sliders").clientHeight;
@@ -58,60 +63,73 @@ class Sweat extends Component {
 		}
 	}
 	render() {
-		let totalSeconds = (this.state.workTime + this.state.restTime) * this.state.roundsNumber;
-		let totalMinutes = totalSeconds / 60;
-		let roundeTotaldMinutes = Math.floor(totalMinutes);
-		let andTotalSeconds = (totalMinutes - roundeTotaldMinutes) * 60;
-		let roundedAndTotalSeconds = Math.floor(andTotalSeconds / 5) * 5;
-		return (
-			<Fragment>
-				<section className="sliders">
-					<div className="overview">
-						{this.state.roundsNumber != 0 && <span>{this.state.roundsNumber}</span>}
-						{this.state.roundsNumber != 0 && <span>rounds of</span>}
-						{this.state.workTime != 0 && <span>{this.state.workTime}</span>}
-						{this.state.workTime != 0 && <span>seconds of work and </span>}
-						{this.state.restTime != 0 && <span>{this.state.restTime}</span>}
-						{this.state.restTime != 0 && <span>seconds of rest between rounds</span>}
-						{this.state.roundsNumber != 0 &&
-						this.state.workTime != 0 &&
-						this.state.restTime != 0 && <span>for a total of</span>}
-						{this.state.roundsNumber != 0 &&
-						this.state.workTime != 0 &&
-						this.state.restTime != 0 && (
-							<span>
-								{roundeTotaldMinutes} minutes and {roundedAndTotalSeconds} seconds
-							</span>
-						)}
-					</div>
-					<div className="active">
-						<Trigger
-							tSliderType="work"
-							tMeasureType="^"
-							wasDragged={this.wasDragged.bind(this)}
-							dragEnd={this.dragEnd.bind(this)}
+		if (this.state.isStarted) {
+			return (
+				<Fragment>
+					<section className="sliders">
+						<div className="overview">
+							<Overview
+								workTime={this.state.workTime}
+								restTime={this.state.restTime}
+								roundsNumber={this.state.roundsNumber}
+							/>
+						</div>
+						<CtrlPanel
+							workTime={this.state.workTime}
+							restTime={this.state.restTime}
+							roundsNumber={this.state.roundsNumber}
+							isStarted={this.state.isStarted}
+							handleClick={this.handleClick.bind(this)}
 						/>
-					</div>
-					<div className="passive">
-						<Trigger
-							tSliderType="rest"
-							tMeasureType="^"
-							wasDragged={this.wasDragged.bind(this)}
-							dragEnd={this.dragEnd.bind(this)}
+					</section>
+				</Fragment>
+			);
+		} else {
+			return (
+				<Fragment>
+					<section className="sliders">
+						<div className="overview">
+							<Overview
+								workTime={this.state.workTime}
+								restTime={this.state.restTime}
+								roundsNumber={this.state.roundsNumber}
+							/>
+						</div>
+						<div className="active">
+							<Trigger
+								tSliderType="work"
+								tMeasureType="^"
+								wasDragged={this.wasDragged.bind(this)}
+								dragEnd={this.dragEnd.bind(this)}
+							/>
+						</div>
+						<div className="passive">
+							<Trigger
+								tSliderType="rest"
+								tMeasureType="^"
+								wasDragged={this.wasDragged.bind(this)}
+								dragEnd={this.dragEnd.bind(this)}
+							/>
+						</div>
+						<div className="rounds">
+							<Trigger
+								tSliderType="rounds"
+								tMeasureType="^"
+								wasDragged={this.wasDragged.bind(this)}
+								dragEnd={this.dragEnd.bind(this)}
+							/>
+						</div>
+						<CtrlPanel
+							workTime={this.state.workTime}
+							restTime={this.state.restTime}
+							roundsNumber={this.state.roundsNumber}
+							handleClick={this.handleClick.bind(this)}
+							isStarted={this.state.isStarted}
 						/>
-					</div>
-					<div className="rounds">
-						<Trigger
-							tSliderType="rounds"
-							tMeasureType="^"
-							wasDragged={this.wasDragged.bind(this)}
-							dragEnd={this.dragEnd.bind(this)}
-						/>
-					</div>
-					<CtrlPanel />
-				</section>
-			</Fragment>
-		);
+					</section>
+				</Fragment>
+			);
+		}
 	}
 }
 export { Sweat };
