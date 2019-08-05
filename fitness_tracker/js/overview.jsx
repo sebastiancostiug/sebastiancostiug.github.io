@@ -1,27 +1,40 @@
 import React, { Component, Fragment } from "react";
+import { Countdown } from "./countdown.jsx";
 class Overview extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			workTime     : 0,
-			restTime     : 0,
-			roundsNumber : 0,
-			isStarted    : false
+			workTime     : this.props.workTime,
+			restTime     : this.props.restTime,
+			roundsNumber : this.props.roundsNumber,
+			isStarted    : this.props.isStarted
 		};
 	}
-
+	componentDidUpdate(prevProps) {
+		if (prevProps.isStarted !== this.props.isStarted) {
+			this.setState({
+				workTime     : this.props.workTime,
+				restTime     : this.props.restTime,
+				roundsNumber : this.props.roundsNumber,
+				isStarted    : this.props.isStarted
+			});
+		}
+	}
 	render() {
-		let isStarted = this.state.isStarted;
 		let totalSeconds = (this.props.workTime + this.props.restTime) * this.props.roundsNumber;
 		let totalMinutes = totalSeconds / 60;
 		let roundedTotalMinutes = Math.floor(totalMinutes);
 		let andTotalSeconds = (totalMinutes - roundedTotalMinutes) * 60;
 		let roundedAndTotalSeconds = Math.floor(andTotalSeconds / 5) * 5;
-
-		if (isStarted) {
+		if (this.state.isStarted) {
 			return (
 				<Fragment>
-					<div>get ready: {this.state.roundsNumber}</div>
+					<Countdown
+						timerWorkTime={this.state.workTime}
+						timerRestTime={this.state.restTime}
+						timerRounds={this.state.roundsNumber}
+						timerOn={this.props.isStarted}
+					/>
 				</Fragment>
 			);
 		} else {
@@ -49,22 +62,3 @@ class Overview extends Component {
 	}
 }
 export { Overview };
-
-/*
-						{this.state.roundsNumber != 0 && <span>{this.state.roundsNumber}</span>}
-						{this.state.roundsNumber != 0 && <span>rounds of</span>}
-						{this.state.workTime != 0 && <span>{this.state.workTime}</span>}
-						{this.state.workTime != 0 && <span>seconds of work and </span>}
-						{this.state.restTime != 0 && <span>{this.state.restTime}</span>}
-						{this.state.restTime != 0 && <span>seconds of rest between rounds</span>}
-						{this.state.roundsNumber != 0 &&
-						this.state.workTime != 0 &&
-						this.state.restTime != 0 && <span>for a total of</span>}
-						{this.state.roundsNumber != 0 &&
-						this.state.workTime != 0 &&
-						this.state.restTime != 0 && (
-							<span>
-								{roundeTotaldMinutes} minutes and {roundedAndTotalSeconds} seconds
-							</span>
-						)}
-*/

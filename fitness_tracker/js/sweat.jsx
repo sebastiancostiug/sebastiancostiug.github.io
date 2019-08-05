@@ -72,6 +72,7 @@ class Sweat extends Component {
 								workTime={this.state.workTime}
 								restTime={this.state.restTime}
 								roundsNumber={this.state.roundsNumber}
+								isStarted={this.state.isStarted}
 							/>
 						</div>
 						<CtrlPanel
@@ -93,6 +94,7 @@ class Sweat extends Component {
 								workTime={this.state.workTime}
 								restTime={this.state.restTime}
 								roundsNumber={this.state.roundsNumber}
+								isStarted={this.state.isStarted}
 							/>
 						</div>
 						<div className="active">
