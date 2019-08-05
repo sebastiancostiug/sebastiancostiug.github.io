@@ -45,7 +45,7 @@ class CtrlPanel extends Component {
 
 	wasClicked(scope) {
 		if (scope == "back") {
-			<Redirect push to="/" />;
+			//go back to main
 		} else if (scope == "start") {
 			if (typeof this.props.handleClick === "function") {
 				this.props.handleClick(true);
