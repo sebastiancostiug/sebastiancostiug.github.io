@@ -7,7 +7,8 @@ class Overview extends Component {
 			workTime     : this.props.workTime,
 			restTime     : this.props.restTime,
 			roundsNumber : this.props.roundsNumber,
-			isStarted    : this.props.isStarted
+			isStarted    : this.props.isStarted,
+			timerOn      : this.props.timerOn
 		};
 	}
 	componentDidUpdate(prevProps) {
@@ -16,7 +17,13 @@ class Overview extends Component {
 				workTime     : this.props.workTime,
 				restTime     : this.props.restTime,
 				roundsNumber : this.props.roundsNumber,
-				isStarted    : this.props.isStarted
+				isStarted    : this.props.isStarted,
+				timerOn      : this.props.timerOn
+			});
+		}
+		if (prevProps.timerOn !== this.props.timerOn) {
+			this.setState({
+				timerOn : this.props.timerOn
 			});
 		}
 	}
@@ -33,7 +40,7 @@ class Overview extends Component {
 						timerWorkTime={this.state.workTime}
 						timerRestTime={this.state.restTime}
 						timerRounds={this.state.roundsNumber}
-						timerOn={this.props.isStarted}
+						timerOn={this.state.timerOn}
 					/>
 				</Fragment>
 			);

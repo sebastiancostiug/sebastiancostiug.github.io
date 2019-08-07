@@ -11,11 +11,18 @@ class Sweat extends Component {
 			workTime      : 0,
 			restTime      : 0,
 			roundsNumber  : 0,
-			isStarted     : false
+			isStarted     : false,
+			timerOn       : true
 		};
 	}
 	handleClick(arg) {
-		this.setState({ isStarted: arg });
+		if (arg == "start") {
+			this.setState({ isStarted: true });
+		} else if (arg == "reset") {
+			this.setState({ isStarted: false });
+		} else if (arg == "pause") {
+			this.setState({ timerOn: !this.state.timerOn });
+		}
 	}
 	wasDragged(event) {
 		let slidersHeight = document.querySelector("div.mainDisplay>section.sliders").clientHeight;
@@ -73,6 +80,7 @@ class Sweat extends Component {
 								restTime={this.state.restTime}
 								roundsNumber={this.state.roundsNumber}
 								isStarted={this.state.isStarted}
+								timerOn={this.state.timerOn}
 							/>
 						</div>
 						<CtrlPanel
@@ -81,6 +89,7 @@ class Sweat extends Component {
 							roundsNumber={this.state.roundsNumber}
 							isStarted={this.state.isStarted}
 							handleClick={this.handleClick.bind(this)}
+							timerOn={this.state.timerOn}
 						/>
 					</section>
 				</Fragment>
