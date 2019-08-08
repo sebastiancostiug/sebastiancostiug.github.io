@@ -5,6 +5,8 @@ class Countdown extends Component {
 		this.state = {
 			timerOn                      : this.props.timerOn,
 			timerWorkTime                : this.props.timerWorkTime, //in seconds
+			timerWorkTimeFromProps       : this.props.timerWorkTime, //in seconds
+			timerRestTimeFromProps       : this.props.timerRestTime, //in seconds
 			timerRestTime                : this.props.timerRestTime, //in seconds
 			timerRounds                  : this.props.timerRounds, //an integer number
 			roundNumber                  : 1,
@@ -81,11 +83,24 @@ class Countdown extends Component {
 		let roundedTotalMinutes = Math.floor(totalMinutes);
 		let andTotalSeconds = (totalMinutes - roundedTotalMinutes) * 60;
 		let roundedAndTotalSeconds = Math.floor(andTotalSeconds);
+
+		let totalWorkSeconds = this.state.timerWorkTime;
+		let totalWorkMinutes = totalWorkSeconds / 60;
+		let roundedTotalWorkMinutes = Math.floor(totalWorkMinutes);
+		let andTotalWorkSeconds = (totalWorkMinutes - roundedTotalWorkMinutes) * 60;
+		let roundedAndTotalWorkSeconds = Math.floor(andTotalWorkSeconds);
+
+		let totalRestSeconds = this.state.timerRestTime;
+		let totalRestMinutes = totalRestSeconds / 60;
+		let roundedTotalRestMinutes = Math.floor(totalRestMinutes);
+		let andTotalRestSeconds = (totalRestMinutes - roundedTotalRestMinutes) * 60;
+		let roundedAndTotalRestSeconds = Math.floor(andTotalRestSeconds);
+
 		let workProgressWidth = {
-			width : `${this.state.timerWorkTime}`
+			width : `${this.state.timerWorkTime}` / `${this.state.timerWorkTimeFromProps}` * 100 + "%"
 		};
 		let restProgressWidth = {
-			width : `${this.state.timerRestTime}`
+			width : `${this.state.timerRestTime}` / `${this.state.timerRestTimeFromProps}` * 100 + "%"
 		};
 		if (this.state.totalWorkoutSeconds > this.state.totalWorkoutSecondsFromProps) {
 			return (
@@ -113,24 +128,36 @@ class Countdown extends Component {
 							</span>
 						</div>
 						<div className="workTime">
-							<span className="progress" />
-							<span>Work time:</span>
-							<span>
-								{`${this.state.timerWorkTime}` > 9 ? (
-									`${this.state.timerWorkTime}`
+							<span className="progress" style={workProgressWidth} />
+							<span className="progressTitle">Work time:</span>
+							<span className="progressCounter">
+								{`${roundedTotalWorkMinutes}` > 9 ? (
+									`${roundedTotalWorkMinutes}`
 								) : (
-									"0" + `${this.state.timerWorkTime}`
+									"0" + `${roundedTotalWorkMinutes}`
+								)}{" "}
+								:
+								{`${roundedAndTotalWorkSeconds}` > 9 ? (
+									`${roundedAndTotalWorkSeconds}`
+								) : (
+									"0" + `${roundedAndTotalWorkSeconds}`
 								)}
 							</span>
 						</div>
 						<div className="restTime">
-							<span className="progress" />
-							<span>Rest time:</span>
-							<span>
-								{`${this.state.timerRestTime}` > 9 ? (
-									`${this.state.timerRestTime}`
+							<span className="progress" style={restProgressWidth} />
+							<span className="progressTitle">Rest time:</span>
+							<span className="progressCounter">
+								{`${roundedTotalRestMinutes}` > 9 ? (
+									`${roundedTotalRestMinutes}`
 								) : (
-									"0" + `${this.state.timerRestTime}`
+									"0" + `${roundedTotalRestMinutes}`
+								)}{" "}
+								:
+								{`${roundedAndTotalRestSeconds}` > 9 ? (
+									`${roundedAndTotalRestSeconds}`
+								) : (
+									"0" + `${roundedAndTotalRestSeconds}`
 								)}
 							</span>
 						</div>
