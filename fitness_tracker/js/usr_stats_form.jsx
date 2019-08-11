@@ -1,36 +1,33 @@
 import React, { Component, Fragment } from "react";
-import { HashRouter, Route, Link, Switch, NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 class UsrStatsForm extends Component {
-	/*constructor(props) {
+	constructor(props) {
 		super(props);
-		if (this.props.prevData.mega !== undefined) {
-			this.state = this.props.prevData;
+		this.state = {};
+	}
+
+	handleSubmit() {
+		event.preventDefault();
+		this.props.submitForm(this.state);
+	}
+
+	handleChange(event) {
+		if (event.target.type === "month") {
+			let today = new Date();
+			let birthday = new Date(event.target.value);
+			let thisAge = today.getFullYear() - birthday.getFullYear();
+			this.setState({ age: thisAge });
+		} else {
+			this.setState({ [event.target.name]: event.target.value });
 		}
 	}
-	handleClick(e) {
-		e.preventDefault();
-		let obj = {
-			test : 1,
-			mega : [
-				{ a: 1 },
-				{ b: 2 }
-			]
-		};
-		let str = "data:text/octstream;{" + JSON.stringify(obj);
-		let a = document.createElement("a");
-		a.href = str;
-		a.download = "data.json";
-		document.body.appendChild(a);
-		a.click();
-	}*/
+
 	componentDidMount() {
 		const radioGender = document.querySelectorAll("form.usrStats>div.gender>label.custom-radio");
 		radioGender.forEach(function(element) {
 			element.addEventListener("click", function(event) {
 				radioGender.forEach(function(element) {
-					console.log(element);
-					event.stopPropagation();
 					if (element.firstElementChild.checked) {
 						element.style.color = "#92140c";
 					} else {
@@ -39,27 +36,41 @@ class UsrStatsForm extends Component {
 				});
 			});
 		});
-		console.log(radioGender);
 	}
 
 	render() {
 		return (
 			<Fragment>
-				<form className="usrStats">
+				<form className="usrStats" action="#" onSubmit={this.handleSubmit.bind(this)}>
 					<div className="gender">
 						<label className="custom-radio">
-							<input type="radio" name="gender" value="1" />
+							<input type="radio" name="gender" value="male" onChange={this.handleChange.bind(this)} />
 							<i className="fas fa-mars" />
 						</label>
 						<label className="custom-radio">
-							<input type="radio" name="gender" value="2" />
+							<input type="radio" name="gender" value="female" onChange={this.handleChange.bind(this)} />
 							<i className="fas fa-venus" />
 						</label>
 					</div>
 					<div className="select">
-						<input type="month" name="birthdate" placeholder="birth date" />
-						<input type="number" name="height" placeholder="height" />
-						<input type="number" name="weight" placeholder="weight" />
+						<input
+							type="month"
+							name="birthdate"
+							placeholder="birth date"
+							onChange={this.handleChange.bind(this)}
+						/>
+						<input
+							type="number"
+							name="height"
+							placeholder="height"
+							onChange={this.handleChange.bind(this)}
+						/>
+						<input
+							type="number"
+							name="weight"
+							placeholder="weight"
+							onChange={this.handleChange.bind(this)}
+						/>
 					</div>
 					<div className="save">
 						<Link to="/">
@@ -72,4 +83,5 @@ class UsrStatsForm extends Component {
 		);
 	}
 }
+
 export { UsrStatsForm };

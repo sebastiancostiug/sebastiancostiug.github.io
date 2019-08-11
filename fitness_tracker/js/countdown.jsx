@@ -131,12 +131,7 @@ class Countdown extends Component {
 							<span className="progress" style={workProgressWidth} />
 							<span className="progressTitle">Work time:</span>
 							<span className="progressCounter">
-								{`${roundedTotalWorkMinutes}` > 9 ? (
-									`${roundedTotalWorkMinutes}`
-								) : (
-									"0" + `${roundedTotalWorkMinutes}`
-								)}{" "}
-								:
+								{roundedTotalWorkMinutes} :
 								{`${roundedAndTotalWorkSeconds}` > 9 ? (
 									`${roundedAndTotalWorkSeconds}`
 								) : (
@@ -148,12 +143,7 @@ class Countdown extends Component {
 							<span className="progress" style={restProgressWidth} />
 							<span className="progressTitle">Rest time:</span>
 							<span className="progressCounter">
-								{`${roundedTotalRestMinutes}` > 9 ? (
-									`${roundedTotalRestMinutes}`
-								) : (
-									"0" + `${roundedTotalRestMinutes}`
-								)}{" "}
-								:
+								{roundedTotalRestMinutes} :
 								{`${roundedAndTotalRestSeconds}` > 9 ? (
 									`${roundedAndTotalRestSeconds}`
 								) : (

@@ -33,6 +33,19 @@ class Overview extends Component {
 		let roundedTotalMinutes = Math.floor(totalMinutes);
 		let andTotalSeconds = (totalMinutes - roundedTotalMinutes) * 60;
 		let roundedAndTotalSeconds = Math.floor(andTotalSeconds / 5) * 5;
+
+		let totalWorkSeconds = this.props.workTime;
+		let totalWorkMinutes = totalWorkSeconds / 60;
+		let roundedTotalWorkMinutes = Math.floor(totalWorkMinutes);
+		let andTotalWorkSeconds = (totalWorkMinutes - roundedTotalWorkMinutes) * 60;
+		let roundedAndTotalWorkSeconds = Math.floor(andTotalWorkSeconds);
+
+		let totalRestSeconds = this.props.restTime;
+		let totalRestMinutes = totalRestSeconds / 60;
+		let roundedTotalRestMinutes = Math.floor(totalRestMinutes);
+		let andTotalRestSeconds = (totalRestMinutes - roundedTotalRestMinutes) * 60;
+		let roundedAndTotalRestSeconds = Math.floor(andTotalRestSeconds);
+
 		if (this.state.isStarted) {
 			return (
 				<Fragment>
@@ -47,20 +60,46 @@ class Overview extends Component {
 		} else {
 			return (
 				<Fragment>
-					{this.props.roundsNumber != 0 && <span>{this.props.roundsNumber}</span>}
-					{this.props.roundsNumber != 0 && <span>rounds of</span>}
-					{this.props.workTime != 0 && <span>{this.props.workTime}</span>}
-					{this.props.workTime != 0 && <span>seconds of work and </span>}
-					{this.props.restTime != 0 && <span>{this.props.restTime}</span>}
-					{this.props.restTime != 0 && <span>seconds of rest between rounds</span>}
+					{this.props.roundsNumber != 0 && <span className="value">{this.props.roundsNumber} </span>}
+					{this.props.roundsNumber != 0 && <span> rounds of</span>}
+					<br />
+					{this.props.workTime != 0 && (
+						<span className="value">
+							{roundedTotalWorkMinutes}:
+							{`${roundedAndTotalWorkSeconds}` > 9 ? (
+								`${roundedAndTotalWorkSeconds}`
+							) : (
+								"0" + `${roundedAndTotalWorkSeconds}`
+							)}
+						</span>
+					)}
+					{this.props.workTime != 0 && <span> of work and </span>}
+					<br />
+					{this.props.restTime != 0 && (
+						<span className="value">
+							{roundedTotalRestMinutes}:
+							{`${roundedAndTotalRestSeconds}` > 9 ? (
+								`${roundedAndTotalRestSeconds}`
+							) : (
+								"0" + `${roundedAndTotalRestSeconds}`
+							)}
+						</span>
+					)}
+					{this.props.restTime != 0 && <span> of rest between rounds</span>}
+					<br />
 					{this.props.roundsNumber != 0 &&
 					this.props.workTime != 0 &&
-					this.props.restTime != 0 && <span>for a total of</span>}
+					this.props.restTime != 0 && <span>for a total of </span>}
 					{this.props.roundsNumber != 0 &&
 					this.props.workTime != 0 &&
 					this.props.restTime != 0 && (
-						<span>
-							{roundedTotalMinutes} minutes and {roundedAndTotalSeconds} seconds
+						<span className="value">
+							{roundedTotalMinutes}:
+							{`${roundedAndTotalSeconds}` > 9 ? (
+								`${roundedAndTotalSeconds}`
+							) : (
+								"0" + `${roundedAndTotalSeconds}`
+							)}
 						</span>
 					)}
 				</Fragment>
