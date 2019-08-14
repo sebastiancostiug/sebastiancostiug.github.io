@@ -6,19 +6,9 @@ class NavMainMenu extends Component {
 		return (
 			<Fragment>
 				<nav className="mainMenu">
-					<Link to="/grow">
-						<div id="grow">
-							<span>grow</span>
-						</div>
-					</Link>
 					<Link to="/sweat">
 						<div id="sweat">
 							<span>sweat</span>
-						</div>
-					</Link>
-					<Link to="/recover">
-						<div id="recover">
-							<span>recover</span>
 						</div>
 					</Link>
 				</nav>
@@ -27,3 +17,16 @@ class NavMainMenu extends Component {
 	}
 }
 export { NavMainMenu };
+
+/*
+					<Link to="/grow">
+						<div id="grow">
+							<span>grow</span>
+						</div>
+					</Link>
+					<Link to="/recover">
+						<div id="recover">
+							<span>recover</span>
+						</div>
+					</Link>
+					*/
