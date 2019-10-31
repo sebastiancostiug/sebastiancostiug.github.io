@@ -1,5 +1,4 @@
 @import 'partials/variables';
-@import 'partials/mixins';
 @import 'partials/reset';
 
 .svg-inline--fa {
@@ -80,6 +79,22 @@
   display: grid;
   grid-template-columns: 20% 80%;
   justify-content: center;
+  &:last-child {
+    padding: 2em 1em 2em 1em !important;
+    align-items: center;
+    grid-template-columns: 25% 75%;
+    > span {
+      &:first-child {
+        font-size: 4em;
+      }
+      &:last-child {
+        padding-left: 1em;
+      }
+      .svg-inline--fa {
+        color: darkgray;
+      }
+    }
+  }
 
   .font-awesome-icon {
     font-size: 2em;
@@ -213,6 +228,15 @@ footer {
           flex-wrap: nowrap;
         }
       }
+      .message {
+        &:last-child {
+          > span {
+            &:last-child {
+              padding-left: 0;
+            }
+          }
+        }
+      }
     }
 
     .menus-container {
@@ -248,7 +272,7 @@ input:focus {
 }
 
 input:invalid:focus {
-  background-image: url(./assets/error.png);
+  background-image: url(../../assets/error.png);
   background-size: 15px;
   background-repeat: no-repeat;
   background-position: 98% center;
