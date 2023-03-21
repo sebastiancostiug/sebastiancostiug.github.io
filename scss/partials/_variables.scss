@@ -1,19 +1,9 @@
-$colNo: 12;
-$colStep: 100/$colNo;
-$colormap: (light: #f7f7f2, accent:#69140e, dark:#242423);
-$tablet: "(min-width: 768px) and (max-width: 1023px)";
-$desktop: "(min-width: 1024px)";
-$tablet-width: 768px;
-$desktop-width: 1024px;
+$colors: (
+    light: #f7f7f2,
+    accent: #69140e,
+    dark: #242423,
+);
 $items: 4;
 $transition-duration: 0.5s;
 $transition-delay: 0.05s;
-
-@font-face {
-	font-family: 'Nexa Light';
-	src: local('Nexa Light'), url('../../fonts/Nexa_Light.otf');
-	font-weight: light;
-	font-family: 'Nexa Bold';
-	src: local('Nexa Bold'), url('../../fonts/Nexa_Bold.otf');
-	font-weight: bold;
-}
+$container-max-width: none;

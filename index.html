@@ -1,116 +1,55 @@
 <!DOCTYPE html>
 <html>
+    <head>
+        <meta charset="utf-8" />
+        <title>overbyte</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <script src="https://unpkg.com/ionicons@5.0.0/dist/ionicons.js"></script>
+        <script
+            src="https://code.jquery.com/jquery-3.6.4.min.js"
+            integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8="
+            crossorigin="anonymous"
+        ></script>
+        <link rel="stylesheet" href="./css/main.css" />
+        <script src="./js/main.js" type="application/javascript"></script>
+    </head>
 
-<head>
-  <meta charset="utf-8">
-  <title>Seb's place</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <!--
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-  -->
-  <script src="https://kit.fontawesome.com/951167cbfe.js"></script>
-  <link rel='stylesheet' href='./css/main.min.css'>
-  <script src="./js/jquery-3.4.1.min.js" type="application/javascript"></script>
-  <script src="./js/main.js" type="application/javascript"></script>
-</head>
-
-<body>
-    <div class="container">
-      <header class="row">
-        <div class="col-4"><div><span>Hello</span></div></div>
-        <div class="col-4 title">
-          <div><span>I'M</span> <span>SEB</span></div>
-        </div>
-        <div class="col-4"><div><span>a front-end developer</span></div></div>
-      </header>
-      <section class="row content">
-        <div class="col-12 neutral"></div>
-        <div class="col-12 accent">
-          <section class="about" style="display:none">
-            <div>
-              <div id="portrait"></div>
-              <div>
-                <h3>my name is</br> Sebastian Costiug</h3>
-                <h4>I'm from Romania</h4>
-              </div>
+    <body>
+        <div class="container is-fluid is-flex is-flex-direction-column px-0">
+            <header
+                class="is-flex is-flex-direction-column is-align-items-flex-end pb-6"
+            >
+                <div class="subtitle">welcome to</div>
+                <div class="title">overbyte</div>
+                <div class="subtitle">
+                    <span
+                        ><strike>a computer enthusiast...</strike>
+                        <strike>a full stack developer...</strike></span
+                    >
+                    <span> a geek's playground</span>
+                </div>
+            </header>
+            <section class="accent"></section>
+            <div id="grinHead">
+                <img
+                    src="./assets/grin2.png"
+                    alt="my lovely grin"
+                    height="100"
+                    width="100"
+                />
             </div>
-            <div>
-            <p>I'm a web developer, fluent in English with a very solid experience in IT & network service.</p>
-            <p>I'm proficient with PHP and several PHP frameworks like Yii2 and Slim, JavaScript, JQuery, ES6, ReactJS,  Node.js and Express.JS.</p>
-            <p>I'm familiar with OpenAPI 3.0 and generally speaking RESTful APIs.  </p>
-            <p>I also speak GIT, HTML, CSS, SASS, some WebPack, Adobe Photoshop, Illustrator and XD.</p>
-            <p>I fell inlove with games when I was a kid, to be honest,
-                games were the main drive behind my computer passion which  led me to understand
-                and later work in IT service.</p>
-            <p>I went to medical school where I got a degree as
-                a dental technician.</p>
-            <p>Because I couldn't leave computers alone, I returned in IT
-                learning web developement creating a most fortunate combination between
-                my atention for detail and patience that
-                I learned and cultivated creating teeth with my passion for computers. </p>
-            <p>If you'd like to know more ...</p>
-            <div><button type="button" onclick=" window.open('./assets/CV-Sebastian-Costiug-EN.pdf', '_blank'); return false;"><i class="fas fa-file-download"></i> View CV</button></div>
-          </div>
-          </section>
-          <section class="portfolio" style="display:none">
-            <ul class="projList">
-              <!-- <li class="">
-                <div><a href="https://mighty-tundra-70517.herokuapp.com/">Node Trade Website</a></div>
-                <div>--work in progress--<br/>
-                    A website build on Node, Mongo and with EJS generated pages for bartering items<br/>
-                    </div>
-              </li> -->
-              <li class="">
-                <div><a href="./fitness_tracker/index.html">Fitness tracker</a></div>
-                <div>--work in progress--<br/>
-                    !! Mobile touch UI only (for now)<br/>
-                    curently working on an ergonomic combined countdown section available here:<br/>
-                    <a href="./fitness_tracker/index.html#/sweat">Countdown Sliders</a></div>
-              </li>
-              <!-- <li class="">
-                <div><a href="./nasa_api_challenge/index.html">NASA API Challenge</a></div>
-                <div>--work in progress--<br/>
-                    displays a gallery of Mars photos from the NASA API</div>
-              </li> -->
-            </ul>
-          </section>
-          <section class="contact" style="display:none">
-            <form class="" id=contactForm>
-              <input type="text" placeholder="enter your name">
-              <input type="email" placeholder="enter your e-mail address">
-              <textarea name="message" id="" cols="39" rows="10" placeholder="what do you want to say to me?"></textarea>
-              <input type="submit" value="send">
-            </form>
-            <div id="disabledForm" style="display:none">
-              <span>
-              Sadly,</br>
-              "GitHub Pages is a static site hosting service and doesn't support server-side code".</br>
-              so the contact form is disabled.</span></br>
-              <span>But if you want to contact me</br>
-              you can reach me:</br></span>
-              <span>here <a href="mailto:sebastian.costiug@gmail.com"><i class="fas fa-envelope"></i></a> or here <a href="http://www.linkedin.com/in/sebastian-costiug"><i class="fab fa-linkedin"></i></a></span>
-            </div>
-          </section>
+            <footer class="nav-menu is-align-self-flex-end">
+                <input id="toggle" type="checkbox" />
+                <label class="toggle-container" for="toggle">
+                    <span class="button button-toggle"></span>
+                </label>
+                <nav class="nav">
+                    <a class="navItem" id="home" href="">front page</a>
+                    <a class="navItem" id="about" href="">get to know me</a>
+                    <a class="navItem" id="content" href="">my playground</a>
+                    <a class="navItem" id="contact" href="">say hello</a>
+                </nav>
+            </footer>
         </div>
-        <div id="grinHead"><img src="./assets/grin2.png" alt="my lovely grin" height="100" width="100"></div>
-        <div class="col-12 neutral"></div>
-      </section>
-      <footer class="navMenu">
-          <input id="toggle" type="checkbox">
-          <label class="toggle-container" for="toggle">
-            <span class="button button-toggle"></span>
-          </label>
-          <nav class="nav">
-          <a class="navItem" id="home"href="">front page</a>
-          <a class="navItem" id="about"href="">get to know me</a>
-          <a class="navItem" id="portfolio" href="">my playground</a>
-          <a class="navItem" id="contact" href="">say hello</a>
-        </nav>
-      </footer>
-    </div>
-</body>
-
+    </body>
 </html>
