@@ -1,52 +1,70 @@
-$(document).ready(function (e) {
+$(function () {
     let menu = $('footer.nav-menu>nav.nav');
-    let grinHead = $('#grinHead');
-    let grinHeadPosition = grinHead.position();
-    let headerHeight = Math.ceil(
-        ($('header').outerHeight(true) * 100) / $(window).height()
+    let hamburger = $('#toggle');
+    let grin = $('#grin');
+    let accentHeight = Math.round(
+        ($('section.accent').height() * 100) / $('body').outerHeight(true)
     );
-    // let headerHeight = Math.ceil($('header').outerHeight(true));
-    let navHeight = Math.ceil(
-        ($('nav.nav').outerHeight(true) * 100) / $(window).height()
-    );
-    // let navHeight = Math.ceil($('nav.nav').outerHeight(true));
-    let navMenuToggle = $('#toggle');
 
-    navMenuToggle.change(function () {
-        let accentHeight = Math.floor(
-            ($('section.accent').height() * 100) / $(window).height()
+    hamburger.change(function () {
+        accentHeight = Math.round(
+            ($('section.accent').height() * 100) / $('body').outerHeight(true)
         );
-        console.log($(this).is(':checked'));
         if (accentHeight !== 7) {
             if ($(this).is(':checked')) {
-                let navHeight = Math.ceil(
-                    ($('nav.nav').outerHeight(true) * 100) / $(window).height()
-                );
-                contentHeight = Math.floor(95 - headerHeight - navHeight);
-                $('section.accent').animate({ height: '30vh' }, 500);
-                if (grinHeadPosition != grinHead.position()) {
-                    grinHead.fadeOut(100);
-                }
+                $.when(
+                    $('section.accent').animate({ height: '30%' }, 500)
+                ).then(grin.delay(200).fadeIn(500));
             } else {
-                $('section.accent').animate({ height: '70vh' }, 500);
-                if (grinHeadPosition != grinHead.position()) {
-                    grinHead.delay(500).fadeIn(500);
-                }
+                $.when(
+                    $('section.accent').animate({ height: `65%` }, 500)
+                ).then(grin.fadeOut(100));
             }
         }
     });
 
     menu.click(function (e) {
         e.preventDefault();
+
+        hamburger.prop('checked', false);
+        accentHeight = 7;
+        let pageLoaded = () => {
+            return;
+        };
+
         let page = $(e.target).attr('id');
-        navMenuToggle.prop('checked', false);
-        contentHeight = 7;
         if (page === 'home') {
-            grinHead.fadeIn(500);
+            grin.delay(200).fadeIn(500);
         } else {
-            contentHeight = Math.floor(95 - headerHeight - navHeight);
-            grinHead.fadeOut(500);
+            accentHeight = 65;
+            pageLoaded = () => {
+                $('#pages').load(`/pages/${page}.html`);
+                return;
+            };
+            grin.fadeOut(100);
         }
-        $('section.accent').animate({ height: `${contentHeight}vh` }, 1000);
+
+        $.when($('#pages').fadeOut(500))
+            .then($('#pages').empty())
+            .then(pageLoaded)
+            .then(
+                $('section.accent').animate(
+                    { height: `${accentHeight}%` },
+                    1000
+                )
+            )
+            .then($('#pages').fadeIn(500))
+            .then(function () {
+                $('script').each(function () {
+                    if ($(this).attr('src') === `./js/${page}.js`) {
+                        $(this).remove();
+                    }
+                });
+                if (page !== 'home') {
+                    $('head').append(
+                        `<script src="./js/${page}.js" type="text/javascript"></script>`
+                    );
+                }
+            });
     });
 });

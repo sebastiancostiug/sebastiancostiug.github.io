@@ -1,58 +1,143 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@200;400;700&family=Righteous&display=swap');
 @import 'partials/variables';
-@import 'https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css';
+@import url('https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css');
 
 html {
-    height: 100vh;
+    height: 100%;
     background-color: map-get($colors, dark);
     color: map-get($colors, light);
     font-family: 'Montserrat', sans-serif;
-    body {
+    > body {
         height: 100%;
         a {
             text-decoration: none;
             text-shadow: 0.1rem 0.1rem 0.3rem #242423;
             color: map-get($colors, light);
         }
-        div.container {
+        > div.container {
             height: 100%;
             > header {
-                > :first-child {
-                    margin-top: 1em;
-                    margin-bottom: -5px;
-                    margin-right: 6.5em;
-                    font-size: 2em;
-                    font-weight: 600;
-                }
-                > .title {
-                    color: map-get($colors, light) !important;
-                    font-family: 'Righteous', cursive;
-                    margin-right: 1em;
-                    font-size: 4em;
-                    font-weight: 900;
-                }
-                > :last-child {
-                    font-size: 0.75em;
-                    letter-spacing: 0.25em;
-                    margin-top: -2.8em !important;
-                    margin-right: 13em;
-                    > :last-child {
+                /* Extra small devices (phones, 600px and down) */
+                @media only screen and (max-width: 600px) {
+                    > :first-child {
+                        margin-top: 0.5em;
+                        margin-bottom: -5px;
+                        margin-right: 7em;
+                        font-size: 1.5em;
+                        font-weight: 600;
+                    }
+                    > .title {
+                        color: map-get($colors, light) !important;
+                        font-family: 'Righteous', cursive;
+                        margin-right: 0.25em;
+                        font-size: 4em;
                         font-weight: 900;
+                    }
+                    > :last-child {
+                        font-size: 0.75em;
+                        letter-spacing: 0.25em;
+                        margin-top: -2.8em !important;
+                        margin-right: 10em;
+                        > span > strike {
+                            display: none;
+                        }
+                        > :last-child {
+                            font-weight: 900;
+                        }
+                    }
+                }
+
+                /* Small devices (portrait tablets and large phones, 600px and up) */
+                @media only screen and (min-width: 600px) and (max-width: 768px) {
+                    > :first-child {
+                        margin-top: 1em;
+                        margin-bottom: -5px;
+                        margin-right: 6.5em;
+                        font-size: 2em;
+                        font-weight: 600;
+                    }
+                    > .title {
+                        color: map-get($colors, light) !important;
+                        font-family: 'Righteous', cursive;
+                        margin-right: 1em;
+                        font-size: 4em;
+                        font-weight: 900;
+                    }
+                    > :last-child {
+                        font-size: 0.75em;
+                        letter-spacing: 0.25em;
+                        margin-top: -2.8em !important;
+                        margin-right: 13em;
+                        > span > strike {
+                            display: none;
+                        }
+                        > :last-child {
+                            font-weight: 900;
+                        }
+                    }
+                }
+
+                /* Medium devices (landscape tablets, 768px and up) */
+                @media only screen and (min-width: 768px) {
+                    > :first-child {
+                        margin-top: 1em;
+                        margin-bottom: -5px;
+                        margin-right: 6.5em;
+                        font-size: 2em;
+                        font-weight: 600;
+                    }
+                    > .title {
+                        color: map-get($colors, light) !important;
+                        font-family: 'Righteous', cursive;
+                        margin-right: 1em;
+                        font-size: 4em;
+                        font-weight: 900;
+                    }
+                    > :last-child {
+                        font-size: 0.75em;
+                        letter-spacing: 0.25em;
+                        margin-top: -2.8em !important;
+                        margin-right: 13em;
+                        > :last-child {
+                            font-weight: 900;
+                        }
                     }
                 }
             }
             > section.accent {
-                height: 7vh;
+                overflow: scroll;
+                height: 7%;
                 background-color: map-get($colors, accent);
                 box-shadow: inset 0 20px 25px -20px #000000,
                     inset 0 -20px 25px -20px #000000;
+                > #pages {
+                    margin: 36px 32px 0 auto;
+                    ::placeholder {
+                        color: map-get($colors, dark) !important;
+                    }
+                    ::-ms-input-placeholder {
+                        color: map-get($colors, dark) !important;
+                    }
+                    span.icon {
+                        color: map-get($colors, accent);
+                    }
+                    textarea {
+                        resize: none !important;
+                    }
+                }
             }
-            > #grinHead {
+            > #grin {
                 position: fixed;
-                bottom: -10%;
-                left: -10%;
-                width: 40%;
-                height: 40%;
+                @media only screen and (max-width: 600px) {
+                    width: 150px;
+                    bottom: -60px;
+                    left: -50px;
+                }
+                @media only screen and (min-width: 600px) {
+                    width: 300px;
+                    bottom: -120px;
+                    left: -100px;
+                }
                 img {
                     width: 100%;
                     height: auto;

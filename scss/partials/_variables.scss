@@ -1,9 +1,11 @@
 $colors: (
     light: #f7f7f2,
     accent: #69140e,
+    grey: #4a4a4a,
     dark: #242423,
 );
 $items: 4;
 $transition-duration: 0.5s;
 $transition-delay: 0.05s;
 $container-max-width: none;
+$input-placeholder-color: map-get($colors, grey);

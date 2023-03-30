@@ -1,0 +1,101 @@
+<div id="gdpr-notice" class="modal">
+    <div class="modal-background"></div>
+    <div class="modal-content px-6">
+        <p>I do not save or collect any kind of data from visitors.</p>
+        <br />
+        <p>
+            However, in order for you to communicate with me, your name & email
+            address will end up in my inbox along with the message you send.
+        </p>
+        <br />
+        <p>
+            I usually keep a clean inbox so I will most likely delete it after
+            reading, replying or when it's no longer relevant.
+        </p>
+        <br />
+        <p>
+            But if you want your data handled any other way you can mention it
+            in the message and I will oblige.
+        </p>
+    </div>
+    <button class="modal-close is-large" aria-label="close"></button>
+</div>
+
+<form class="ml-6 columns is-flex-wrap-wrap" id="contactForm">
+    <div id="name-input" class="column is-half">
+        <div class="control has-icons-left has-text-dark">
+            <input
+                class="input"
+                type="text"
+                name="name"
+                placeholder="and you are..."
+            />
+            <span class="icon is-small is-left">
+                <ion-icon name="person-circle"></ion-icon>
+            </span>
+        </div>
+        <p class="help is-danger is-hidden">
+            This name is too short, usually names have at least 2 letters ...
+        </p>
+    </div>
+
+    <div id="email-input" class="column is-half">
+        <div class="control has-icons-left has-icons-right">
+            <input
+                class="input"
+                type="email"
+                name="email"
+                placeholder="your e-mail? just so I can reply..."
+            />
+            <span class="icon is-small is-left">
+                <ion-icon name="mail"></ion-icon>
+            </span>
+            <span class="icon is-small is-right is-hidden">
+                <i class="fas fa-exclamation-triangle"></i>
+            </span>
+        </div>
+        <p class="help is-danger is-hidden">
+            This email is invalid, replying to this address would be pretty
+            difficult
+        </p>
+    </div>
+
+    <div id="message-input" class="column is-full">
+        <div class="control">
+            <textarea
+                class="textarea"
+                name="message"
+                placeholder="what do you want to say to me?"
+                rows="10"
+            ></textarea>
+        </div>
+        <p class="help is-danger is-hidden">
+            The shortest message I know would be "FU" and that has 2 letters ...
+        </p>
+    </div>
+
+    <div id="gdpr-input" class="column is-half">
+        <div class="control">
+            <span
+                id="gdpr-notice-trigger"
+                class="is-clickable has-text-warning-light has-text-weight-bold s-size-1-touch"
+                >GDPR says I have to let you know.</span
+            >
+            <label class="checkbox">
+                Is that OK ?
+                <input id="gdpr-agree" type="checkbox" />
+            </label>
+        </div>
+        <p class="help is-danger is-hidden">
+            Can't let you send me a message if you don't agree...
+        </p>
+    </div>
+
+    <div class="column is-half">
+        <div class="control">
+            <button id="contact-button" class="button is-fullwidth">
+                Send
+            </button>
+        </div>
+    </div>
+</form>
